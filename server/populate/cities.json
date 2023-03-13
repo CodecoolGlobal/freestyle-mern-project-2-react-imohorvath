@@ -191,6 +191,54 @@
       "currency": "Euro",
       "sights": ["Il Duomo", "Galleria dell'Accademia", "Gallerie Degli Uffizi", "Ponte Vecchio", "Piazzale Michelangelo"],
       "image_url": "https://images.pexels.com/photos/10486824/pexels-photo-10486824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      "id": 17,
+      "name": "Edinburgh",
+      "country": "United Kingdom",
+      "continent": "Europe",
+      "timezone": "GMT",
+      "population": 518500 ,
+      "official_language": "English, Scots",
+      "currency": "Pound Sterling",
+      "sights": ["Arthur's Seat", "Royal Yacht Britannia", "Edinburgh Castle", "National Museum of Scotland", "Edinburgh Old Town"],
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Edinburgh_Castle_black_and_white.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Chicago",
+      "country": "United States",
+      "continent": "North America",
+      "timezone": "CST",
+      "population": 2746388,
+      "official_language": "English",
+      "currency": "United States dollar",
+      "sights": ["The Art Institute of Chicago", "Millennium Park", "Cloud Gate", "The Magnificent Mile", "Museum of Science and Industry"],
+      "image_url": "https://c.pxhere.com/photos/92/80/aeroplane_airplane_architecture_black_and_white_buildings_chicago_city_downtown-1003567.jpg!d"
+    },
+    {
+      "id": 19,
+      "name": "Glasgow",
+      "country": "United Kingdom",
+      "continent": "Europe",
+      "timezone": "GMT",
+      "population": 626410,
+      "official_language": "English, Scots, Gaelic",
+      "currency": "Pound Sterling",
+      "sights": ["Buchanan Street", "Celtic Park", "The Necropolis", "The Riverside Museum", "Glengoyne Distillery"],
+      "image_url": "https://c.pxhere.com/photos/2d/1e/old_bw_white_black_building_architecture_scotland_university-144699.jpg!d"
+    },
+    {
+      "id": 20,
+      "name": "Medellín",
+      "country": "Colombia",
+      "continent": "South America",
+      "timezone": "COT",
+      "population": 2569007,
+      "official_language": "Spanish",
+      "currency": "Colombian Peso",
+      "sights": ["Medellin Metrocable", "Museum Pablo Escobar", "Parque Explora", "Museo de Antioquia", "Laguna de Guatape"],
+      "image_url": "https://live.staticflickr.com/1675/24417172916_d82e8a75e0_c.jpg"
     }
   ]
 }
