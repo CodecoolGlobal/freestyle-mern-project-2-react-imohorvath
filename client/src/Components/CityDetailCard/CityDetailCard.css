@@ -1,0 +1,45 @@
+.city-card {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  height: 60vh;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  border: black solid 1px;
+}
+
+.city-card-image {
+  width: 70%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: match-parent;
+}
+
+.city-card-image-text {
+  margin: 0;
+  font-family: 'Cinzel';
+  font-size: calc(25px + 5vmin);
+  background: rgb(255,255,255);
+  background: radial-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.city-card-details {
+  padding: 4%;
+  text-align: start;
+  font-size: calc(5px + 1.7vmin);
+  background-color: black;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.city-card-details-main {
+  margin-bottom: 1vmin;
+}
+
+.city-card-details-plain {
+  margin: 0;
+}
+

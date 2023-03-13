@@ -1,0 +1,34 @@
+.city-row {
+  font-size: 3vmin;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.city-row-element {
+  width: 36.4%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.city-row-buttons {
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.function-button {
+  width: 60%;
+  height: 30%;
+  font-family: "Barlow Condensed";
+  font-size: 0.6em;
+  color: white;
+  background-color: #434343;
+  border: transparent;
+}
+
+

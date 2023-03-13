@@ -1,0 +1,36 @@
+.rating-div {
+  padding: 4%;
+}
+
+.rating-icon {
+  padding: 1px;
+}
+
+.filled {
+  color: black;
+}
+
+#rating-1 {
+  width: 14px;
+  height: 14px;
+}
+
+#rating-2 {
+  width: 17px;
+  height: 17px;
+}
+
+#rating-3 {
+  width: 20px;
+  height: 20px;
+}
+
+#rating-4 {
+  width: 23px;
+  height: 23px;
+}
+
+#rating-5 {
+  width: 26px;
+  height: 26px;
+}

@@ -1,0 +1,42 @@
+.header {
+  font-family: "Barlow Condensed"; 
+}
+
+.logo-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.main-logo {
+  height: 4em;
+  padding: 0.8em;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+  }
+
+.nav-button {
+  font-family: "Barlow Condensed";
+  font-size: 1.5em;
+  background-color: white;
+  width: -webkit-fill-available;
+  border: none;
+  border-bottom: 0.08em solid black;
+  padding: 0.2em;
+}
+
+.nav-button-active {
+  border: 0.08em solid black;
+  border-bottom: none;
+}

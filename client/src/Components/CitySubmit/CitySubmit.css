@@ -1,0 +1,43 @@
+.city-submit {
+  font-family: "Barlow Condensed";
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  border: black solid 1px;
+  font-size: 1.1em;
+}
+
+.comment-div {
+  padding: 4%;
+  width: 50%;
+}
+
+.comment-input {
+  color: black;
+  background-color: white;
+  font-family: "Barlow Condensed";
+  padding: 4%;
+  width: 100%;
+  border: 0.8px solid grey;
+  font-size: 1em;
+}
+
+::placeholder {
+  font-family: "Barlow Condensed";
+  color: black;
+}
+
+.submit-button-div {
+  padding: 4%;
+}
+
+.submit-to-favs {
+  font-family: "Barlow Condensed";
+  font-size: 1.1em;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
