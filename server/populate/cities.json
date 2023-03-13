@@ -1,7 +1,6 @@
 {
   "cities": [
     {
-      "id": 1,
       "name": "Paris",
       "country": "France",
       "continent": "Europe",
@@ -13,7 +12,6 @@
       "image_url": "https://images.unsplash.com/photo-1435164205788-305635a36ec2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
     },
     {
-      "id": 2,
       "name": "New York City",
       "country": "United States",
       "continent": "North America",
@@ -25,7 +23,6 @@
       "image_url": "https://images.unsplash.com/25/black-white-city.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
     },
     {
-      "id": 3,
       "name": "Tokyo",
       "country": "Japan",
       "continent": "Asia",
@@ -37,7 +34,6 @@
       "image_url": "https://images.unsplash.com/photo-1567929287189-631b5c1878d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
     },
     {
-      "id": 4,
       "name": "London",
       "country": "United Kingdom",
       "continent": "Europe",
@@ -49,7 +45,6 @@
       "image_url": "https://images.unsplash.com/photo-1610909343746-2a45af2211c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1973&q=80"
     },
     {
-      "id": 5,
       "name": "Rome",
       "country": "Italy",
       "continent": "Europe",
@@ -61,7 +56,6 @@
       "image_url": "https://images.unsplash.com/photo-1658938524899-847e78ed9006?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2074&q=80"
     },
     {
-      "id": 6,
       "name": "Barcelona",
       "country": "Spain",
       "continent": "Europe",
@@ -73,7 +67,6 @@
       "image_url": "https://images.squarespace-cdn.com/content/v1/5dc98ce1845d6d42600bc5b9/1576363666181-YIP3SAEZ825NHXU2H3PC/med-edd--Jb3ClzUmxQ-unsplash.jpg?format=2500w"
     },
     {
-      "id": 7,
       "name": "Bangkok",
       "country": "Thailand",
       "continent": "Asia",
@@ -85,7 +78,6 @@
       "image_url": "https://www.thephoblographer.com/wp-content/uploads/2017/01/RicohGR_Thailand_Stead_01.jpg"
     },
     {
-      "id": 8,
       "name": "Istanbul",
       "country": "Turkey",
       "continent": "Europe/Asia",
@@ -97,7 +89,6 @@
       "image_url": "https://images.unsplash.com/photo-1587893905384-a7e56f8a41d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
     },
     {
-      "id": 9,
       "name": "Dubai",
       "country": "United Arab Emirates",
       "continent": "Asia",
@@ -109,7 +100,6 @@
       "image_url": "https://images.unsplash.com/photo-1547222025-74f255f081e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80"
     },
     {
-      "id": 10,
       "name": "Athens",
       "country": "Greece",
       "continent": "Europe",
@@ -121,7 +111,6 @@
       "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Acropolis_Of_Athens_Greece_01.jpg"
     },
     {
-      "id": 11,
       "name": "Amsterdam",
       "country": "Netherlands",
       "continent": "Europe",
@@ -133,7 +122,6 @@
       "image_url": "https://images.unsplash.com/photo-1638625127534-4c5078028959?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
     },
     {
-      "id": 12,
       "name": "Brussels",
       "country": "Belgium",
       "continent": "Europe",
@@ -145,7 +133,6 @@
       "image_url": "https://images.pexels.com/photos/2887478/pexels-photo-2887478.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
-      "id": 13,
       "name": "Marrakech",
       "country": "Morocco",
       "continent": "Africa",
@@ -157,7 +144,6 @@
       "image_url": "https://images.pexels.com/photos/8131369/pexels-photo-8131369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
-      "id": 14,
       "name": "Madrid",
       "country": "Spain",
       "continent": "Europe",
@@ -169,7 +155,6 @@
       "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Palacio_de_Cristal_%28El_Retiro%29_Madrid_in_black_and_white.jpg"
     },
     {
-      "id": 15,
       "name": "Hanoi",
       "country": "Vietnam",
       "continent": "Asia",
@@ -181,7 +166,6 @@
       "image_url": "https://images.pexels.com/photos/5988345/pexels-photo-5988345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
-      "id": 16,
       "name": "Florence",
       "country": "Italy",
       "continent": "Europe",
@@ -193,7 +177,6 @@
       "image_url": "https://images.pexels.com/photos/10486824/pexels-photo-10486824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
-      "id": 17,
       "name": "Edinburgh",
       "country": "United Kingdom",
       "continent": "Europe",
@@ -205,7 +188,6 @@
       "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Edinburgh_Castle_black_and_white.jpg"
     },
     {
-      "id": 18,
       "name": "Chicago",
       "country": "United States",
       "continent": "North America",
@@ -217,7 +199,6 @@
       "image_url": "https://c.pxhere.com/photos/92/80/aeroplane_airplane_architecture_black_and_white_buildings_chicago_city_downtown-1003567.jpg!d"
     },
     {
-      "id": 19,
       "name": "Glasgow",
       "country": "United Kingdom",
       "continent": "Europe",
@@ -229,7 +210,6 @@
       "image_url": "https://c.pxhere.com/photos/2d/1e/old_bw_white_black_building_architecture_scotland_university-144699.jpg!d"
     },
     {
-      "id": 20,
       "name": "Medellín",
       "country": "Colombia",
       "continent": "South America",
