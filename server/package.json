@@ -7,7 +7,7 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "dev": "nodemon server.js"
-  },
-  "type": "module"
+    "dev": "nodemon server.js",
+    "populate": "node ./populate/populate.js"
+  }
 }

@@ -1,7 +1,6 @@
-import mongoose from "mongoose";
-import express from "express";
-import { readFile } from "fs/promises";
-import { Favourite } from "./model/favourite.model.js";
+const mongoose = require("mongoose");
+const express = require("express");
+const FavouriteModel = require("./model/favourite.model")
 
 const app = express();
 app.use(express.json());
@@ -17,7 +16,7 @@ app.use(function (req, res, next) {
 
 mongoose
   .connect(
-    "mongodb+srv://tysie:aosbpi3WpVxZW1e@cluster0.yogwhg7.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://hnoamy:qHyhKk9SksABLDl1@cluster0.orabq8j.mongodb.net/test",
     {
       family: 4,
     }
@@ -26,13 +25,13 @@ mongoose
   .catch((error) => console.error(error));
 
 app.get("/api/cities", async (req, res) => {
-  const data = await readFile("./populate/cities.json");
+  const data = await fs.readFile("./populate/cities.json");
   const parsedData = await JSON.parse(data);
   res.send(parsedData.cities);
 });
 
 // app.post("/api/bucketlist", (req, res) => {
-  
+
 //   const favourite = new Favourite({
 //     name: req.body.name,
 //     country: req.body.country,
@@ -47,27 +46,27 @@ app.get("/api/cities", async (req, res) => {
 //     .catch((err) => res.status(400).json({ success: false }));
 // });
 
-app.post("/api/bucketlist", async (req, res) => { 
+app.post("/api/bucketlist", async (req, res) => {
   try {
-    const favourite = new Favourite({
+    const favourite = new FavouriteModel({
       name: req.body.name,
       country: req.body.country,
       comment: req.body.comment,
       rating: req.body.rating,
       createdAt: Date.now(),
     });
-  
+
     const fav = await favourite.save();
-    res.status(200).json(fav);  
+    res.status(200).json(fav);
   } catch (error) {
     console.error(error);
-    res.status(500).json({success: false});
+    res.status(500).json({ success: false });
   }
 })
 
 app.get("/api/bucketlist", async (req, res) => {
   try {
-    const list = await Favourite.find({});
+    const list = await FavouriteModel.find({});
     res.status(200).json(list);
   } catch (error) {
     console.error(error);
@@ -79,7 +78,7 @@ app.delete("/api/bucketlist", async (req, res) => {
   try {
     const id = req.body.id;
 
-    const fav = await Favourite.findByIdAndDelete(id);
+    const fav = await FavouriteModel.findByIdAndDelete(id);
     res.status(200).json(fav);
   } catch (error) {
     console.error(error);
@@ -92,11 +91,11 @@ app.patch("/api/bucketlist", async (req, res) => {
     const id = req.body.id;
     const comment = req.body.comment;
 
-    const fav = await Favourite.findByIdAndUpdate(id, { comment }, { new: true });
+    const fav = await FavouriteModel.findByIdAndUpdate(id, { comment }, { new: true });
     res.status(200).json(fav);
   } catch (error) {
     console.error(error);
-    res.status(500).json({success: false});
+    res.status(500).json({ success: false });
   }
 });
 

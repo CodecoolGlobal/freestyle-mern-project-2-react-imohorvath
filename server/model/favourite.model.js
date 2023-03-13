@@ -1,12 +1,17 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
 const favouriteSchema = new Schema({
-    name: String,
-    country: String,
-    comment: String,
-    rating: Number,
-    createdAt: Date
+  city: {
+    type: Schema.Types.ObjectId,
+    ref: 'City'
+  },
+  comment: String,
+  rating: Number,
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 
-export const Favourite = model('Favourite', favouriteSchema);
+module.exports = mongoose.model('Favourite', favouriteSchema);

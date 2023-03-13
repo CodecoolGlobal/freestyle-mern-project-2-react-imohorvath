@@ -1,5 +1,4 @@
-{
-  "cities": [
+[
     {
       "name": "Paris",
       "country": "France",
@@ -221,4 +220,3 @@
       "image_url": "https://live.staticflickr.com/1675/24417172916_d82e8a75e0_c.jpg"
     }
   ]
-}
