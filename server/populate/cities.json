@@ -218,5 +218,60 @@
       "currency": "Colombian Peso",
       "sights": ["Medellin Metrocable", "Museum Pablo Escobar", "Parque Explora", "Museo de Antioquia", "Laguna de Guatape"],
       "image_url": "https://live.staticflickr.com/1675/24417172916_d82e8a75e0_c.jpg"
+    },
+    {
+      "name": "Prague",
+      "country": "Czech Republic",
+      "continent": "Europe",
+      "timezone": "CET",
+      "population": 1275406,
+      "official_language": "Czech",
+      "currency": "Euro",
+      "sights": ["Staromestske namesti", "St. Vitus Cathedral", "Charles Bridge", "Prague Castle", "Lesser Town"],
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/PRAGUE.jpg/1280px-PRAGUE.jpg"
+    },
+    {
+      "name": "Berlin",
+      "country": "Germany",
+      "continent": "Europe",
+      "timezone": "COT",
+      "population": 3677472,
+      "official_language": "German",
+      "currency": "Euro",
+      "sights": ["Reichstag Building", "Brandenburg Gate", "The Holocaust Memorial", "Memorial of the Berlin Wall", "Pergamonmuseum"],
+      "image_url": "https://images.pexels.com/photos/5802430/pexels-photo-5802430.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      "name": "Quebec",
+      "country": "Canada",
+      "continent": "North America",
+      "timezone": "ET",
+      "population": 8501833,
+      "official_language": "English France",
+      "currency": "Canadian dollar",
+      "sights": ["Old Quebec", "Terrasse Dufferin", "Place Royale", "La Citadelle de Québec", "Parc de la Chute-Montmorency"],
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Rue_Saint-Joseph%2C_Quebec_City%2C_Quebec%2C_Canada_2340_19.jpg"
+    },
+    {
+      "name": "Copenhagen",
+      "country": "Denmark",
+      "continent": "Europe",
+      "timezone": "COT",
+      "population": 1366301,
+      "official_language": "Danish",
+      "currency": "Danish Krone",
+      "sights": ["Nyhavn", "Tivoli Gardens", "Rosenborg Castle", "Ny Carlsberg Glyptotek", " Our Saviour's Church"],
+      "image_url": "https://live.staticflickr.com/7667/16884418807_b58263e600_c.jpg"
+    },
+    {
+      "name": "Cape Town",
+      "country": "South Africa",
+      "continent": "Africa",
+      "timezone": "SAST",
+      "population": 4710000,
+      "official_language": "Zulu, Xhosa, Afrikaans",
+      "currency": "South African rand",
+      "sights": ["Table Mountain Aerial Cableway", "Table Mountain", "Kirstenbosch National Botanical Garden", "Boulders Beach Penguin Colony", "Lion's Head"],
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Cape_Town_City_Hall%2C_black_and_white.jpg/1280px-Cape_Town_City_Hall%2C_black_and_white.jpg"
     }
   ]
