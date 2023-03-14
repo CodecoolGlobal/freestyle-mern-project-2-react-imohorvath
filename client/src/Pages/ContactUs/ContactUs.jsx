@@ -3,24 +3,24 @@ import { useState, useEffect } from "react";
 
 const ContactUs = () => {
   return (
-    <form action="">
+    <form id="contactForm" className="contact-form">
       <div className="inputDiv">
-        <label htmlFor="">First name:</label>
-        <input type="text" name="firstName" />
+        <label htmlFor="firstName">First name:</label>
+        <input type="text" id="firstName" name="firstName" />
       </div>
 
       <div className="inputDiv">
-        <label htmlFor="">Last name:</label>
-        <input type="text" name="lastName" />
+        <label htmlFor="lastName">Last name:</label>
+        <input type="text" id="lastName" name="lastName" />
       </div>
 
       <div className="inputDiv">
-        <label htmlFor="">Email:</label>
-        <input type="text" name="email" />
+        <label htmlFor="email">Email:</label>
+        <input type="text" id="email" name="email" />
       </div>
 
       <div className="inputDiv">
-        <label for="phone">Enter your phone number:</label>
+        <label htmlFor="phone">Enter your phone number:</label>
         <input
           type="tel"
           id="phone"
@@ -28,27 +28,26 @@ const ContactUs = () => {
           pattern="[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{3}"
           required
         />
-        </div>
+      </div>
 
-        <div className="inputDiv">
-          <label htmlFor="">Your message for us:</label>
-          <input type="text" name="" />
-        </div>
+      <div className="inputDiv">
+        <label htmlFor="message">Your message for us:</label>
+        <input type="text" name="message" />
+      </div>
 
-        <div className="inputDiv">
-          <label for="subscribeNews">Subscribe to newsletter?</label>
-          <input
-            type="checkbox"
-            id="subscribeNews"
-            name="subscribe"
-            value="newsletter"
-          />
-        </div>
+      <div className="inputDiv">
+        <label htmlFor="subscribeNews">Subscribe to newsletter?</label>
+        <input
+          type="checkbox"
+          id="subscribeNews"
+          name="subscribe"
+          value="newsletter"
+        />
+      </div>
 
-        <div className="inputDiv">
-          <input type="submit" />
-        </div>
-
+      <div className="inputDiv">
+        <input type="submit" />
+      </div>
     </form>
   );
 };
