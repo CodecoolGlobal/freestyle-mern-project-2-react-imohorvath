@@ -7,6 +7,7 @@ import Header from "./Pages/Header";
 import ErrorPage from "./Pages/ErrorPage";
 import Citylist from "./Pages/Citylist";
 import Bucketlist from "./Pages/Bucketlist";
+import ContactUs from "./Pages/ContactUs";
 
 import "./index.css";
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/bucketlist",
         element: <Bucketlist />,
+      },
+      {
+        path: "/contactus",
+        element: <ContactUs />,
       },
     ]
   },
