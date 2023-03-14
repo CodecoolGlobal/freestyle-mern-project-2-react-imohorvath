@@ -24,7 +24,8 @@ app.use(function (req, res, next) {
 
 mongoose
   .connect(
-    MONGO_URL, {
+    MONGO_URL,
+    {
       family: 4,
     }
   )
