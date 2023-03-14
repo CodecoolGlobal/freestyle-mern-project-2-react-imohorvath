@@ -1,10 +1,10 @@
-//require("dotenv").config();
+require("dotenv").config();
 const mongoose = require("mongoose");
 const cities = require("./cities.json");
 const FavouriteModel = require("../model/favourite.model");
 const CityModel = require("../model/city.model");
 
-const mongoUrl = "mongodb+srv://hnoamy:qHyhKk9SksABLDl1@cluster0.orabq8j.mongodb.net/test";
+const mongoUrl = process.env.MONGO_URL;
 
 if (!mongoUrl) {
   console.error("Missing MONGO_URL environment variable");
