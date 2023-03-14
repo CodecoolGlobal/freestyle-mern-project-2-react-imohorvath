@@ -11,15 +11,22 @@ if (!mongoUrl) {
   process.exit(1);
 }
 
+const randomNumber = (min, max, precision) => {
+  return Math.floor(Math.random() * (max * precision - min * precision) + min * precision) / (1 * precision)
+}
+
 const populateCities = async () => {
   await CityModel.deleteMany({});
-
-  await CityModel.create(...cities);
+  const citylist = cities.map(city => ({
+    ...city,
+    reviews: randomNumber(5, 10, 10)
+  }))
+  await CityModel.create(citylist);
   console.log("Cities created");
 };
 
 const main = async () => {
-  await mongoose.connect(mongoUrl, {family:4});
+  await mongoose.connect(mongoUrl, { family: 4 });
 
   await populateCities();
 

@@ -9,6 +9,7 @@ const CitySchema = new Schema({
     population: Number,
     official_language: String,
     currency: String,
+    reviews: Number,
     sights: [String],
     image_url: String
 });
