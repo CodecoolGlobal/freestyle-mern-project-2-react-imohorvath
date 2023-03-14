@@ -1,7 +1,8 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
-const FavouriteModel = require("./model/favourite.model")
+const FavouriteModel = require("./model/favourite.model");
+const CityModel = require('./model/city.model');
 
 const { MONGO_URL, PORT = 8080 } = process.env;
 
@@ -33,9 +34,8 @@ mongoose
   .catch((error) => console.error(error));
 
 app.get("/api/cities", async (req, res) => {
-  const data = await fs.readFile("./populate/cities.json");
-  const parsedData = await JSON.parse(data);
-  res.send(parsedData.cities);
+  const cities = await CityModel.find({});
+  res.json(cities);
 });
 
 // app.post("/api/bucketlist", (req, res) => {
