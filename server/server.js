@@ -1,6 +1,14 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 const FavouriteModel = require("./model/favourite.model")
+
+const { MONGO_URL, PORT = 8080 } = process.env;
+
+if (!MONGO_URL) {
+  console.error("Missing MONGO_URL environment variable");
+  process.exit(1);
+}
 
 const app = express();
 app.use(express.json());
@@ -16,7 +24,7 @@ app.use(function (req, res, next) {
 
 mongoose
   .connect(
-    "mongodb+srv://hnoamy:qHyhKk9SksABLDl1@cluster0.orabq8j.mongodb.net/test",
+    MONGO_URL,
     {
       family: 4,
     }
