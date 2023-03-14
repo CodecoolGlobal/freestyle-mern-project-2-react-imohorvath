@@ -4,11 +4,9 @@ import CityDetailCard from "../CityDetailCard";
 
 import "./CityItem.css"
 
-const CityItem = (props) => {
+const CityItem = ({city}) => {
   const [isAddClicked, setIsAddClicked] = useState(false);
   const [isShown, setIsShown] = useState(false);
-
-  const city = props.city;
 
   const handleClickOnButton = () => {
     setIsShown(!isShown);
@@ -20,7 +18,7 @@ const CityItem = (props) => {
 
   return (
     <>
-      <div className="city-row" key={city._id}>
+      <div className="city-row">
         <div className="city-row-element">
           <p>{city.name}</p>
         </div>
@@ -48,8 +46,7 @@ const CityItem = (props) => {
       </div>
       {isAddClicked && (
         <CitySubmit
-          name={city.name}
-          country={city.country}
+          city={city}
           onSubmit={handleClick}
         />
       )}

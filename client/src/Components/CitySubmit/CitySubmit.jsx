@@ -3,21 +3,25 @@ import RatingDiv from "../RatingDiv";
 
 import "./CitySubmit.css"
 
-const CitySubmit = ({ name, country, onSubmit }) => {
+const CitySubmit = ({ city, onSubmit }) => {
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    const data = { name, country, comment, rating };
+    const body = {  
+      city: city._id,
+      comment, 
+      rating 
+    };
 
     fetch("/api/bucketlist", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(body),
     })
       .then((response) => response.json())
       .then((response) => {

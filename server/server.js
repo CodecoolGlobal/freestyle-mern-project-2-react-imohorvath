@@ -54,27 +54,19 @@ app.get("/api/cities", async (req, res) => {
 //     .catch((err) => res.status(400).json({ success: false }));
 // });
 
-app.post("/api/bucketlist", async (req, res) => {
-  try {
-    const favourite = new FavouriteModel({
-      name: req.body.name,
-      country: req.body.country,
-      comment: req.body.comment,
-      rating: req.body.rating,
-      createdAt: Date.now(),
-    });
-
-    const fav = await favourite.save();
-    res.status(200).json(fav);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ success: false });
-  }
+app.post("/api/bucketlist", async (req, res, next) => {
+try {
+  const saved = await FavouriteModel.create(req.body);
+  res.json(saved);
+} catch (error) {
+  return next(error)
+}
 })
 
 app.get("/api/bucketlist", async (req, res) => {
   try {
-    const list = await FavouriteModel.find({});
+    const list = await FavouriteModel.find().populate('city');
+    console.log(list)
     res.status(200).json(list);
   } catch (error) {
     console.error(error);
