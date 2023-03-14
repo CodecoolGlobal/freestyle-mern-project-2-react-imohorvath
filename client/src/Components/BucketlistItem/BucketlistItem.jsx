@@ -8,7 +8,7 @@ import "./BucketlistItem.css";
 const BucketlistItem = ({ destination, deleteItem, updateItem }) => {
   const [updateClicked, setUpdateClicked] = useState(false);
   const [newComment, setNewComment] = useState(destination.comment);
-
+  
   const changeCommentField = () => {
     setUpdateClicked(!updateClicked);
   };
@@ -30,10 +30,10 @@ const BucketlistItem = ({ destination, deleteItem, updateItem }) => {
       <div className="bucketlist-row-text">
         <div className="bucketlist-row-text-top">
           <div className="bucketlist-row-element">
-            <p>{destination.name}</p>
+            <p>{destination.city.name}</p>
           </div>
           <div className="bucketlist-row-element">
-            <p>{destination.country}</p>
+            <p>{destination.city.country}</p>
           </div>
           <div className="bucketlist-row-element">
           {[...Array(destination.rating)].map((_, index) => (

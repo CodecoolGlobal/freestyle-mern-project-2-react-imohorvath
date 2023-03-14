@@ -24,14 +24,14 @@ const Bucketlist = () => {
   }, [deleteClicked, newCommentSubmitted]);
 
   const deleteItem = (id) => {
-    const message = { id };
+    const body = { id };
 
     fetch("/api/bucketlist", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(message),
+      body: JSON.stringify(body),
     })
       .then((res) => res.json())
       .then((res) => console.log(res))
@@ -64,7 +64,7 @@ const Bucketlist = () => {
     <>
       <div className="bucketlist-container">
         <div className="bucketlist">
-          {bucketlist.map((destination, index) => (
+          {bucketlist.map((destination) => (
             <BucketlistItem
               destination={destination}
               key={destination._id}
