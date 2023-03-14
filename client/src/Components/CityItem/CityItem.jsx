@@ -20,7 +20,7 @@ const CityItem = (props) => {
 
   return (
     <>
-      <div className="city-row" key={city.id}>
+      <div className="city-row" key={city._id}>
         <div className="city-row-element">
           <p>{city.name}</p>
         </div>

@@ -14,6 +14,7 @@ const Citylist = () => {
       .then((res) => res.json())
       .then((result) => {
         setCityList(result);
+        console.log(result);
       })
       .catch((error) =>
         console.log(`An error occurred at fetching from /api/cities:${error}`)
@@ -36,8 +37,8 @@ const Citylist = () => {
           handleSearch={(e) => handleSearch(e)}
         />
         <div className="city-list">
-          {cityList.map((city, index) => (
-            <CityItem city={city} key={index} />
+          {cityList.map((city) => (
+            <CityItem city={city} key={city._id} />
           ))}
         </div>
       </div>
