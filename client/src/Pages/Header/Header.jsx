@@ -38,7 +38,7 @@ const Header = ({ deleteClicked, setDeleteClicked }) => {
           >
             Bucket List
           </HeaderButton>
-          <HeaderButton>Contact Us</HeaderButton>
+          <HeaderButton route="/contactus">Contact Us</HeaderButton>
         </div>
       </div>
       <Outlet />
