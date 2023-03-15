@@ -3,3 +3,8 @@ GET http://localhost:4000/api/cities
 
 ###
 GET http://localhost:4000/api/bucketlist
+
+
+###
+PATCH http://localhost:4000/api/bucketlist/update-visited/6411ea17e51e64bb12184b6c
+Content-Type: application/json
