@@ -19,7 +19,7 @@ const CityFilter = ({filterValue, countries, handleFilter}) => {
         />
         <datalist id="countryList">
           {countries.map((country, index) => 
-            <option key={index} value={country.name}>{country.name}</option>
+            <option key={index} value={country}>{country}</option>
           )}
         </datalist>
       </div>

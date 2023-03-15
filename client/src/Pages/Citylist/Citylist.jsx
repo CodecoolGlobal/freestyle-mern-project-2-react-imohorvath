@@ -32,7 +32,8 @@ const Citylist = () => {
   }, []);
 
   useEffect(() => {
-    setCountryList(createCountryList(cityList))
+    const countrylist = createCountryList(cityList)
+    setCountryList(countrylist)
     console.log(countryList);
   }, [cityList]);
 
