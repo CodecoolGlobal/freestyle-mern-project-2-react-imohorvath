@@ -2,7 +2,9 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 const FavouriteModel = require("./model/favourite.model");
-const CityModel = require("./model/city.model");
+
+const CityModel = require('./model/city.model');
+const ContactModel = require('./model/contact.model');
 
 const { MONGO_URL, PORT = 8080 } = process.env;
 
@@ -99,6 +101,20 @@ app.patch("/api/bucketlist/update-visited/:id", async (req, res) => {
   const saved = await bucketItem.save();
 
   res.json(saved);
+});
+
+app.get("/api/contacts", async (req, res) => {
+  const contacts = await ContactModel.find({});
+  res.json(contacts);
+});
+
+app.post("/api/contacts", async (req, res, next) => {
+  try {
+    const saved = await ContactModel.create(req.body);
+    res.json(saved)
+  } catch (error) {
+    return next(error)
+  }
 });
 
 app.listen(4000, () => console.log("The server is running on port 4000"));

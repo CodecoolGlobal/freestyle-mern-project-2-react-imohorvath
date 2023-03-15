@@ -1,0 +1,54 @@
+/* ContactUsForm.css */
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .inputDiv {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 60vw;
+    align-items: center;
+  }
+  
+  label {
+    margin-right: 10px;
+    width: 35%;
+  }
+  
+  input[type="text"],
+  input[type="tel"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 70%;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  input[type="submit"] {
+
+    width: 40%;
+    height: 50%;
+    font-family: "Barlow Condensed";
+    font-size: 1.1em;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: rgba(0, 0, 0, 0.788);
+  }
+
+.contact-header {
+  margin: 5%;
+}
+  
