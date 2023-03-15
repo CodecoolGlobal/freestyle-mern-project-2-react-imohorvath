@@ -11,7 +11,9 @@ const CitySchema = new Schema({
     currency: String,
     reviews: Number,
     sights: [String],
-    image_url: String
+    image_url: String,
+    color: String,
+    reviews: Number,
 });
 
 module.exports = mongoose.model("City", CitySchema);
