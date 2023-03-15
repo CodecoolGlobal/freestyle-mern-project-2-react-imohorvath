@@ -7,12 +7,13 @@ import CityFilter from "../../Components/CityFilter";
 
 import "./Citylist.css";
 
-  const createCountryList = (cityList) => {
-    return [...new Set(cityList.map((city) => city.country))];
-  };
+const createCountryList = (cityList) => {
+  return [...new Set(cityList.map((city) => city.country))];
+};
 
 const Citylist = () => {
   const [cityList, setCityList] = useState([]);
+  const [originalList, setOriginalList] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(true);
   const [countryList, setCountryList] = useState([]);
@@ -24,6 +25,12 @@ const Citylist = () => {
       .then((res) => res.json())
       .then((result) => {
         setCityList(result);
+        setOriginalList(result);
+        return result;
+      })
+      .then((result) => {
+        const countrylist = createCountryList(result);
+        setCountryList(countrylist);
         setLoading(false);
       })
       .catch((error) =>
@@ -31,19 +38,13 @@ const Citylist = () => {
       );
   }, []);
 
-  useEffect(() => {
-    const countrylist = createCountryList(cityList)
-    setCountryList(countrylist)
-    console.log(countryList);
-  }, [cityList]);
-
   if (loading) {
     return <Loading />;
   }
 
   const handleSearch = (e) => {
     setSearchValue(e.target.value);
-    const filtered = cityList.filter((city) =>
+    const filtered = originalList.filter((city) =>
       city.name.toLowerCase().includes(e.target.value.toLowerCase())
     );
     setCityList(filtered);
@@ -51,7 +52,7 @@ const Citylist = () => {
 
   const handleFilter = (e) => {
     setFilterValue(e.target.value);
-    const filtered = cityList.filter((city) =>
+    const filtered = originalList.filter((city) =>
       city.country.toLowerCase().includes(e.target.value.toLowerCase())
     );
     setCityList(filtered);
@@ -65,7 +66,7 @@ const Citylist = () => {
           handleSearch={(e) => handleSearch(e)}
         />
         <CityFilter
-          filterValue={filterValue}       
+          filterValue={filterValue}
           countries={countryList}
           handleFilter={(e) => handleFilter(e)}
         />
