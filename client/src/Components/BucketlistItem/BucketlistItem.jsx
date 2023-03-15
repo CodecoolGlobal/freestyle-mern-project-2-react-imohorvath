@@ -40,8 +40,7 @@ const BucketlistItem = ({ destination, deleteItem, updateItem }) => {
             <IconContext.Provider value={{ color: destination.city.color }}>
             <BsSuitHeartFill
               key={index}
-              id="rating-3"
-              className="rating-icon"
+              className="rating-heart"
             />
             </IconContext.Provider>
             ))}

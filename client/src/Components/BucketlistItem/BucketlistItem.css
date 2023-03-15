@@ -100,3 +100,9 @@
     background-color: black;
     cursor: pointer;
   }
+
+  .rating-heart {
+    padding: 1px;
+    width: 3vmin;
+    height: 3vmin;
+  }
