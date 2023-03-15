@@ -25,6 +25,9 @@ const CityItem = ({city}) => {
         <div className="city-row-element">
           <p>{city.country}</p>
         </div>
+        <div className="city-row-element city-row-element-reviews">
+          <p>{city.reviews}</p>
+        </div>
         <div className="city-row-buttons">
           {isShown ? (
             <button onClick={handleClickOnButton} className="function-button">Hide</button>

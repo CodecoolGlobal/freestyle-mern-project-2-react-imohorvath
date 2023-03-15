@@ -18,7 +18,7 @@
 
 .citylist-header-item{
     display: flex;
-    width: 36.4%;
+    width: 26%;
     flex-direction: row;
     justify-content: flex-start;
 }

@@ -51,8 +51,10 @@ const Citylist = () => {
             <div className="citylist-header-item">
               <h3>Country</h3>
             </div>
+            <div className="citylist-header-item">
+              <h3>Visitor reviews</h3>
+            </div>
             <div className="citylist-header-empty">
-              <h3></h3>
             </div>
           </div>
           {cityList.map((city) => (
