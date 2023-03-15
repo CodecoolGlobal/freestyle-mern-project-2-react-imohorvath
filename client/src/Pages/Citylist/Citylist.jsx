@@ -3,13 +3,20 @@ import CityItem from "../../Components/CityItem";
 import CitySearch from "../../Components/CitySearch";
 import Footer from "../../Components/Footer";
 import Loading from "../../Components/Loading";
+import CityFilter from "../../Components/CityFilter";
 
 import "./Citylist.css";
 
+  const createCountryList = (cityList) => {
+    return [...new Set(cityList.map((city) => city.country))];
+  };
+
 const Citylist = () => {
   const [cityList, setCityList] = useState([]);
-  const [filterValue, setFilterValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(true);
+  const [countryList, setCountryList] = useState([]);
+  const [filterValue, setFilterValue] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -24,24 +31,42 @@ const Citylist = () => {
       );
   }, []);
 
+  useEffect(() => {
+    setCountryList(createCountryList(cityList))
+    console.log(countryList);
+  }, [cityList]);
+
   if (loading) {
     return <Loading />;
   }
 
-  function handleSearch(e) {
-    setFilterValue(e.target.value);
+  const handleSearch = (e) => {
+    setSearchValue(e.target.value);
     const filtered = cityList.filter((city) =>
       city.name.toLowerCase().includes(e.target.value.toLowerCase())
     );
     setCityList(filtered);
-  }
+  };
+
+  const handleFilter = (e) => {
+    setFilterValue(e.target.value);
+    const filtered = cityList.filter((city) =>
+      city.country.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    setCityList(filtered);
+  };
 
   return (
     <>
       <div className="city-container">
         <CitySearch
-          filterValue={filterValue}
+          searchValue={searchValue}
           handleSearch={(e) => handleSearch(e)}
+        />
+        <CityFilter
+          filterValue={filterValue}       
+          countries={countryList}
+          handleFilter={(e) => handleFilter(e)}
         />
         <div className="city-list">
           <div className="citylist-header">
@@ -54,8 +79,7 @@ const Citylist = () => {
             <div className="citylist-header-item">
               <h3>Visitor reviews</h3>
             </div>
-            <div className="citylist-header-empty">
-            </div>
+            <div className="citylist-header-empty"></div>
           </div>
           {cityList.map((city) => (
             <CityItem city={city} key={city._id} />
