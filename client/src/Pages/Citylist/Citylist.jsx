@@ -2,24 +2,31 @@ import { useState, useEffect } from "react";
 import CityItem from "../../Components/CityItem";
 import CitySearch from "../../Components/CitySearch";
 import Footer from "../../Components/Footer";
+import Loading from "../../Components/Loading";
 
 import "./Citylist.css";
 
 const Citylist = () => {
   const [cityList, setCityList] = useState([]);
   const [filterValue, setFilterValue] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch("/api/cities")
       .then((res) => res.json())
       .then((result) => {
         setCityList(result);
-        console.log(result);
+        setLoading(false);
       })
       .catch((error) =>
         console.log(`An error occurred at fetching from /api/cities:${error}`)
       );
   }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   function handleSearch(e) {
     setFilterValue(e.target.value);
