@@ -44,6 +44,17 @@ const Citylist = () => {
           handleSearch={(e) => handleSearch(e)}
         />
         <div className="city-list">
+          <div className="citylist-header">
+            <div className="citylist-header-item">
+              <h3>City</h3>
+            </div>
+            <div className="citylist-header-item">
+              <h3>Country</h3>
+            </div>
+            <div className="citylist-header-empty">
+              <h3></h3>
+            </div>
+          </div>
           {cityList.map((city) => (
             <CityItem city={city} key={city._id} />
           ))}
