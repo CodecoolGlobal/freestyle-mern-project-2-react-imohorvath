@@ -66,7 +66,6 @@ try {
 app.get("/api/bucketlist", async (req, res) => {
   try {
     const list = await FavouriteModel.find().populate('city');
-    console.log(list)
     res.status(200).json(list);
   } catch (error) {
     console.error(error);
