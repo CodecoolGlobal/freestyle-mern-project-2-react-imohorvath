@@ -2,7 +2,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 const FavouriteModel = require("./model/favourite.model");
-const CityModel = require('./model/city.model');
+const CityModel = require("./model/city.model");
 
 const { MONGO_URL, PORT = 8080 } = process.env;
 
@@ -24,12 +24,9 @@ app.use(function (req, res, next) {
 });
 
 mongoose
-  .connect(
-    MONGO_URL,
-    {
-      family: 4,
-    }
-  )
+  .connect(MONGO_URL, {
+    family: 4,
+  })
   .then(() => console.log("Connected to MongoDB"))
   .catch((error) => console.error(error));
 
@@ -38,64 +35,70 @@ app.get("/api/cities", async (req, res) => {
   res.json(cities);
 });
 
-// app.post("/api/bucketlist", (req, res) => {
+app.get("/api/bucketlist", async (req, res) => {
 
-//   const favourite = new Favourite({
-//     name: req.body.name,
-//     country: req.body.country,
-//     comment: req.body.comment,
-//     rating: req.body.rating,
-//     createdAt: Date.now(),
-//   });
+  const list = await FavouriteModel.find().populate("city");
+  res.json(list);
 
-//   favourite
-//     .save()
-//     .then((fav) => res.json(fav))
-//     .catch((err) => res.status(400).json({ success: false }));
-// });
+  // try {
+  //   const list = await FavouriteModel.find().populate("city");
+  //   res.status(200).json(list);
+  // } catch (error) {
+  //   console.error(error);
+  //   res.status(500).json({ success: false });
+  // }
+});
 
 app.post("/api/bucketlist", async (req, res, next) => {
-try {
-  const saved = await FavouriteModel.create(req.body);
-  res.json(saved);
-} catch (error) {
-  return next(error)
-}
-})
-
-app.get("/api/bucketlist", async (req, res) => {
+  const bucketlistItem = req.body;
+  
   try {
-    const list = await FavouriteModel.find().populate('city');
-    res.status(200).json(list);
+    const saved = await FavouriteModel.create(bucketlistItem);
+    res.json(saved);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ success: false });
+    return next(error);
   }
 });
 
-app.delete("/api/bucketlist", async (req, res) => {
+app.patch("/api/bucketlist/:id", async (req, res, next) => {
+  const id = req.params.id;
+  
   try {
-    const id = req.body.id;
-
-    const fav = await FavouriteModel.findByIdAndDelete(id);
-    res.status(200).json(fav);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ success: false });
-  }
-});
-
-app.patch("/api/bucketlist", async (req, res) => {
-  try {
-    const id = req.body.id;
     const comment = req.body.comment;
 
-    const fav = await FavouriteModel.findByIdAndUpdate(id, { comment }, { new: true });
-    res.status(200).json(fav);
+    const bucketlistItem = await FavouriteModel.findOneAndUpdate(
+      { _id: id},
+      { comment },
+      { new: true }
+    );
+    res.json(bucketlistItem);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ success: false });
+    return next(error);
   }
+});
+
+app.delete("/api/bucketlist/:id", async (req, res, next) => {
+  try {
+    const bucketlistItem = await FavouriteModel.findById(req.params.id);
+    const deleted = await bucketlistItem.delete();
+    res.json(deleted);
+  } catch (error) {
+    return next(error);
+  }
+});
+
+app.patch("/api/bucketlist/update-visited/:id", async (req, res) => {
+  const id = req.params.id;
+
+  const bucketItem = await FavouriteModel.findById(id);
+
+  //erre is azért van szükség, mert elvileg nem tudom módosítani
+  // egy findByIdandUpdateben a visited értékét
+  // így meg lehet toggle-ni
+  bucketItem.visited = !bucketItem.visited;
+  const saved = await bucketItem.save();
+
+  res.json(saved);
 });
 
 app.listen(4000, () => console.log("The server is running on port 4000"));
