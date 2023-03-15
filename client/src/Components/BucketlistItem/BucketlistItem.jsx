@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { IconContext } from 'react-icons';
 import { BsSuitHeartFill } from "react-icons/bs";
 // import { TbSquare, TbCheckbox } from "react-icons/tb";
 
@@ -8,7 +8,7 @@ import "./BucketlistItem.css";
 const BucketlistItem = ({ destination, deleteItem, updateItem }) => {
   const [updateClicked, setUpdateClicked] = useState(false);
   const [newComment, setNewComment] = useState(destination.comment);
-  
+
   const changeCommentField = () => {
     setUpdateClicked(!updateClicked);
   };
@@ -37,11 +37,14 @@ const BucketlistItem = ({ destination, deleteItem, updateItem }) => {
           </div>
           <div className="bucketlist-row-element">
           {[...Array(destination.rating)].map((_, index) => (
+            <IconContext.Provider value={{ color: destination.city.color }}>
             <BsSuitHeartFill
               key={index}
               id="rating-3"
-              className="rating-icon-filled"
-            />))}
+              className="rating-icon"
+            />
+            </IconContext.Provider>
+            ))}
           </div>
           <div className="bucketlist-row-buttons">
             {updateClicked ? (
