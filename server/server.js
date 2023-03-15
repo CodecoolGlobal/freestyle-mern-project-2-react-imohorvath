@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const FavouriteModel = require("./model/favourite.model");
 const CityModel = require('./model/city.model');
+const ContactModel = require('./model/contact.model');
 
 const { MONGO_URL, PORT = 8080 } = process.env;
 
@@ -55,12 +56,12 @@ app.get("/api/cities", async (req, res) => {
 // });
 
 app.post("/api/bucketlist", async (req, res, next) => {
-try {
-  const saved = await FavouriteModel.create(req.body);
-  res.json(saved);
-} catch (error) {
-  return next(error)
-}
+  try {
+    const saved = await FavouriteModel.create(req.body);
+    res.json(saved);
+  } catch (error) {
+    return next(error)
+  }
 })
 
 app.get("/api/bucketlist", async (req, res) => {
@@ -97,5 +98,19 @@ app.patch("/api/bucketlist", async (req, res) => {
     res.status(500).json({ success: false });
   }
 });
+
+app.get("/api/contacts", async (req, res) => {
+  const contacts = await ContactModel.find({});
+  res.json(contacts);
+})
+
+app.post("/api/contacts", async (req, res, next) => {
+  try {
+    const saved = await ContactModel.create(req.body);
+    res.json(saved)
+  } catch (error) {
+    return next(error)
+  }
+})
 
 app.listen(4000, () => console.log("The server is running on port 4000"));
