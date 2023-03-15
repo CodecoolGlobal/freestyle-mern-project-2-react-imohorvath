@@ -1,0 +1,18 @@
+.city-search {
+    padding: 2%;
+  }
+  
+.city-search-input {
+    color: black;
+    background-color: white;
+    font-family: "Barlow Condensed";
+    padding: 1%;
+    width: 25%;
+    border: 0.8px solid grey;
+    font-size: 1.2em;
+}
+  
+::placeholder {
+    font-family: "Barlow Condensed";
+    color: black;
+}
