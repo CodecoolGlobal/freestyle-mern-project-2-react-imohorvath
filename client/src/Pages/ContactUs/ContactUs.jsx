@@ -4,7 +4,7 @@ import ContactUsForm from "../../Components/ContactUsForm";
 import ThankYou from "../../Components/ThankYou";
 
 const ContactUs = () => {
-  const [isSubmitted, setIsSubmitted] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const createContact = (contact) => {
     return fetch("api/contacts", {
