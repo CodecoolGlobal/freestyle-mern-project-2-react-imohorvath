@@ -6,8 +6,27 @@
     margin-bottom: 1vmin;
     border-bottom: 0.15em dashed black;
   }
+
+  .checked {
+    color: #afafaf;
+  }
+
+  .checked p {
+    text-decoration: line-through;
+  }
+
+  .checked-button {
+    width: 70%;
+    height: 50%;
+    font-family: "Barlow Condensed";
+    font-size: 0.9em;
+    color: white;
+    background-color: #afafaf;
+    border: transparent;
+    cursor: unset;
+  }
   
-  /* .bucketlist-row-checkbox {
+  .bucketlist-row-checkbox {
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -16,9 +35,9 @@
   }
   
   .checkbox {
-    width: 35px;
-    height: 35px;
-  } */
+    width: 4vmin;
+    height: 4vmin;
+  }
   
   .bucketlist-row-text {
     width: 100%;
