@@ -50,7 +50,7 @@ const ContactUsForm = ({ onSave }) => {
 
         <div className="inputDiv">
           <label htmlFor="message">Your message for us:</label>
-          <input type="text" name="message" required />
+          <input type="text" id="message" name="message" required />
         </div>
 
         <div className="inputDiv">
@@ -65,7 +65,7 @@ const ContactUsForm = ({ onSave }) => {
         </div>
 
         <div className="inputDiv">
-          <input type="submit" />
+          <input type="submit" id="submitContactUs" />
         </div>
       </form>
     </>
