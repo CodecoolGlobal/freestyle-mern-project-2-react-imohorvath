@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { IconContext } from 'react-icons';
+import { IconContext } from "react-icons";
 import { BsSuitHeartFill } from "react-icons/bs";
-// import { TbSquare, TbCheckbox } from "react-icons/tb";
+import { TbSquare, TbCheckbox } from "react-icons/tb";
 
 import "./BucketlistItem.css";
 
-const BucketlistItem = ({ destination, deleteItem, updateItem }) => {
+const BucketlistItem = ({ destination, onDelete, onUpdate, onChange }) => {
   const [updateClicked, setUpdateClicked] = useState(false);
   const [newComment, setNewComment] = useState(destination.comment);
 
@@ -19,14 +19,28 @@ const BucketlistItem = ({ destination, deleteItem, updateItem }) => {
     setNewComment(newComment);
     setUpdateClicked(!updateClicked);
 
-    updateItem(destination._id, newComment);
+    onUpdate(destination._id, newComment);
   };
 
   return (
-    <div className="bucketlist-row">
-      {/* <div className="bucketlist-row-checkbox">
-        <TbSquare className="checkbox" />
-      </div> */}
+    <div
+      className={
+        destination.visited ? "bucketlist-row checked" : "bucketlist-row"
+      }
+    >
+      <div className="bucketlist-row-checkbox">
+        {destination.visited ? (
+          <TbCheckbox
+            className="checkbox"
+            onClick={() => onChange(destination._id)}
+          />
+        ) : (
+          <TbSquare
+            className="checkbox"
+            onClick={() => onChange(destination._id)}
+          />
+        )}
+      </div>
       <div className="bucketlist-row-text">
         <div className="bucketlist-row-text-top">
           <div className="bucketlist-row-element">
@@ -36,14 +50,13 @@ const BucketlistItem = ({ destination, deleteItem, updateItem }) => {
             <p>{destination.city.country}</p>
           </div>
           <div className="bucketlist-row-element">
-          {[...Array(destination.rating)].map((_, index) => (
-            <IconContext.Provider value={{ color: destination.city.color }}>
-            <BsSuitHeartFill
-              key={index}
-              id="rating-3"
-              className="rating-icon"
-            />
-            </IconContext.Provider>
+            {[...Array(destination.rating)].map((_, index) => (
+              <IconContext.Provider
+                key={index}
+                value={destination.visited ? { color: "#afafaf" } : { color: destination.city.color }}
+              >
+                <BsSuitHeartFill className="rating-heart" />
+              </IconContext.Provider>
             ))}
           </div>
           <div className="bucketlist-row-buttons">
@@ -52,7 +65,15 @@ const BucketlistItem = ({ destination, deleteItem, updateItem }) => {
                 Cancel
               </button>
             ) : (
-              <button className="function-button" onClick={changeCommentField}>
+              <button
+                className={
+                  destination.visited
+                    ? "checked-button"
+                    : "function-button"
+                }
+                disabled={destination.visited ? true : false}
+                onClick={changeCommentField}
+              >
                 Update
               </button>
             )}
@@ -60,7 +81,7 @@ const BucketlistItem = ({ destination, deleteItem, updateItem }) => {
           <div className="bucketlist-row-buttons">
             <button
               className="function-button"
-              onClick={() => deleteItem(destination._id)}
+              onClick={() => onDelete(destination._id)}
             >
               Delete
             </button>
@@ -76,7 +97,10 @@ const BucketlistItem = ({ destination, deleteItem, updateItem }) => {
                 onChange={(e) => setNewComment(e.target.value)}
               />
               <div className="comment-update-buttons">
-                <button className="comment-submit-button" onClick={handleSubmit}>
+                <button
+                  className="comment-submit-button"
+                  onClick={handleSubmit}
+                >
                   Submit
                 </button>
               </div>

@@ -11,6 +11,10 @@ const favouriteSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  visited: {
+    type: Boolean,
+    default: false
   }
 });
 
