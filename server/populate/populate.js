@@ -12,12 +12,10 @@ if (!mongoUrl) {
 }
 
 //Create a random hex color
+// original const hexValues = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"]; 
 const createRandomHex = () => {
+
   const hexValues = [
-    0,
-    1,
-    2,
-    3,
     4,
     5,
     6,
@@ -34,7 +32,7 @@ const createRandomHex = () => {
 
   const hexCode =
     "#" +
-    [...Array(7)]
+    [...Array(6)]
       .map(() => hexValues[Math.floor(Math.random() * hexValues.length)])
       .join("");
 
