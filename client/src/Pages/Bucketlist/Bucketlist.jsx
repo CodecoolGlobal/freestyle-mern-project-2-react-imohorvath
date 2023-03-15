@@ -6,66 +6,71 @@ import Loading from "../../Components/Loading";
 
 import "./Bucketlist.css";
 
+const fetchBucketlist = () => {
+  return fetch("/api/bucketlist").then((res) => res.json());
+};
+
 const Bucketlist = () => {
   const [bucketlist, setBucketlist] = useState([]);
-  const [deleteClicked, setDeleteClicked] = useState(false);
-  const [newCommentSubmitted, setNewCommentSubmitted] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/bucketlist")
-      .then((res) => res.json())
-      .then((result) => {
-        setBucketlist(result);
-        setLoading(false);
-      })
-      .catch((error) =>
-        console.log(
-          `An error occurred at fetching from /api/bucketlist:${error}`
-        )
-      );
-  }, [deleteClicked, newCommentSubmitted]);
+    fetchBucketlist().then((bucketlist) => {
+      setBucketlist(bucketlist);
+      setLoading(false);
+    });
+  }, []);
 
   if (loading) {
     return <Loading />;
   }
 
-  const deleteItem = (id) => {
-    const body = { id };
-
-    fetch("/api/bucketlist", {
+  const deleteBucketlistItem = (id) => {
+    fetch(`/api/bucketlist/${id}`, {
       method: "DELETE",
+    }).then((res) => res.json());
+
+    setBucketlist((items) => {
+      return items.filter((item) => item._id !== id);
+    });
+  };
+
+  const updateBucketlistItem = (id, comment) => {
+    const body= {
+      comment,
+    };
+
+    fetch(`/api/bucketlist/${id}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res))
-      .catch((error) => console.error(error));
-
-    setDeleteClicked(!deleteClicked);
+      .then(() => {
+        setLoading(true);
+        fetchBucketlist().then((bucketlist) => {
+          setBucketlist(bucketlist);
+          setLoading(false);
+        });
+      });
   };
 
-  const updateItem = (id, comment) => {
-    const message = {
-      id,
-      comment,
-    };
-
-    fetch("/api/bucketlist", {
+  //Itt kell headers? vagy body?
+  const changeBucketlistItem = (id) => {
+    fetch(`/api/bucketlist/update-visited/${id}`, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(message),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res))
-      .catch((error) => console.error(error));
-
-    setNewCommentSubmitted(!newCommentSubmitted);
+      .then(() => {
+        setLoading(true);
+        fetchBucketlist().then((bucketlist) => {
+          setBucketlist(bucketlist);
+          setLoading(false);
+        });
+      });
   };
 
   return (
@@ -76,8 +81,9 @@ const Bucketlist = () => {
             <BucketlistItem
               destination={destination}
               key={destination._id}
-              deleteItem={deleteItem}
-              updateItem={updateItem}
+              onDelete={deleteBucketlistItem}
+              onUpdate={updateBucketlistItem}
+              onChange={changeBucketlistItem}
             />
           ))}
         </div>
