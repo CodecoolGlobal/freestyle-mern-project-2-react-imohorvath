@@ -49,12 +49,23 @@ const Bucketlist = () => {
       body: JSON.stringify(body),
     })
       .then((res) => res.json())
-      .then(() => {
-        setLoading(true);
+      .then((city) => {
+        setBucketlist(list => list.map(fav => {
+          if (city._id !== fav._id) {
+            return fav;
+          }
+
+          return {
+            ...fav,
+            ...city
+          };
+        }))
+
+        /*setLoading(true);
         fetchBucketlist().then((bucketlist) => {
           setBucketlist(bucketlist);
           setLoading(false);
-        });
+        });*/
       });
   };
 
