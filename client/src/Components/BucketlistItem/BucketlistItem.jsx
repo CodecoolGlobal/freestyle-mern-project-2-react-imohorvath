@@ -53,7 +53,11 @@ const BucketlistItem = ({ destination, onDelete, onUpdate, onChange }) => {
             {[...Array(destination.rating)].map((_, index) => (
               <IconContext.Provider
                 key={index}
-                value={destination.visited ? { color: "#afafaf" } : { color: destination.city.color }}
+                value={
+                  destination.visited
+                    ? { color: "#afafaf" }
+                    : { color: destination.city.color }
+                }
               >
                 <BsSuitHeartFill className="rating-heart" />
               </IconContext.Provider>
@@ -67,9 +71,7 @@ const BucketlistItem = ({ destination, onDelete, onUpdate, onChange }) => {
             ) : (
               <button
                 className={
-                  destination.visited
-                    ? "checked-button"
-                    : "function-button"
+                  destination.visited ? "checked-button" : "function-button"
                 }
                 disabled={destination.visited ? true : false}
                 onClick={changeCommentField}

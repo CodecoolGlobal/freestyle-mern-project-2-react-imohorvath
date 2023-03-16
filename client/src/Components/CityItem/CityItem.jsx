@@ -2,18 +2,32 @@ import { useState } from "react";
 import CitySubmit from "../CitySubmit";
 import CityDetailCard from "../CityDetailCard";
 
-import "./CityItem.css"
+import "./CityItem.css";
 
-const CityItem = ({city}) => {
+const fetchBucketlist = async (cityid) => {
+  const response = await fetch(`/api/bucketlist?cityid=${cityid}`);
+  const result = await response.json();
+  return result;
+};
+
+const CityItem = ({ city }) => {
   const [isAddClicked, setIsAddClicked] = useState(false);
-  const [isShown, setIsShown] = useState(false);
+  const [isCityCardShown, setIsCityCardShown] = useState(false);
+  const [isOnBucketlist, setIsonBucketlist] = useState(false);
 
-  const handleClickOnButton = () => {
-    setIsShown(!isShown);
+  const handleDisplayCityCard = () => {
+    setIsCityCardShown(!isCityCardShown);
   };
 
-  function handleClick() {
+  const handleDisplaySubmitCard = async () => {
     setIsAddClicked(!isAddClicked);
+    const result = await fetchBucketlist(city._id);
+    // console.log(result);
+    if (result === null) {
+      return;
+    } else {
+      setIsonBucketlist(true);
+    }
   }
 
   return (
@@ -26,31 +40,42 @@ const CityItem = ({city}) => {
           <p>{city.country}</p>
         </div>
         <div className="city-row-buttons">
-          {isShown ? (
-            <button onClick={handleClickOnButton} className="function-button">Hide</button>
+          {isCityCardShown ? (
+            <button onClick={handleDisplayCityCard} className="function-button">
+              Hide
+            </button>
           ) : (
-            <button onClick={handleClickOnButton} className="function-button">Show</button>
+            <button onClick={handleDisplayCityCard} className="function-button">
+              Show
+            </button>
           )}
         </div>
         <div className="city-row-buttons">
-        {isAddClicked ? (
-          <button className="function-button" onClick={handleClick}>
-            Cancel
-          </button>
-        ) : (
-          <button className="function-button" onClick={handleClick}>
-            Add
-          </button>
-        )}
+          {isAddClicked ? (
+            <button
+              className="function-button"
+              onClick={handleDisplaySubmitCard}
+            >
+              Cancel
+            </button>
+          ) : (
+            <button
+              className="function-button"
+              onClick={handleDisplaySubmitCard}
+            >
+              Add
+            </button>
+          )}
         </div>
       </div>
       {isAddClicked && (
         <CitySubmit
           city={city}
-          onSubmit={handleClick}
+          onSubmit={handleDisplaySubmitCard}
+          isOnBucketlist={isOnBucketlist}
         />
       )}
-      {isShown && <CityDetailCard city={city} />}
+      {isCityCardShown && <CityDetailCard city={city} />}
     </>
   );
 };

@@ -1,7 +1,37 @@
 .bucketlist {
   width: 100%;
+  margin-top: 4vmin;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.bucketlist-header {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5vmin;
+  margin-bottom: 1vmin;
+  border-bottom: 0.15em dashed black;
+}
+
+.bucketlist-header-text {
+  width: 100%;
+  font-size: 2.5vmin;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bucketlist-header-text-item {
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.bucketlist-header-text-empty {
+  width: 25%
 }

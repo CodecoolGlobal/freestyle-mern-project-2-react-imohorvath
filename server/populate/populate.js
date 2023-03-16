@@ -47,11 +47,13 @@ const populateCities = async () => {
   console.log("Cities created");
 };
 
+// TODO megoldani úgy a meglévő key-nek a létrehozását úgy oldjuk, hogy nem hozunk létre egy teljesen új listát!!!
 // const updateWithRandomValues = async () => {
   //Ez nem jó, mert mindegyikhez ugyanazt az értéket állítja be
   // await CityModel.updateMany({}, { $set: { color: createRandomHex() } });
 
-  // Ez meg csak simán nem működik a foeEach-el.
+  // Ez meg csak simán nem működik a foeEach-el. Azért nem működik, mert nem tudunk forEach-et hívni a query dokumentumra.
+
   // CityModel.find({
   //   color: { $exists: false },
   //   reviews: { $exists: false },

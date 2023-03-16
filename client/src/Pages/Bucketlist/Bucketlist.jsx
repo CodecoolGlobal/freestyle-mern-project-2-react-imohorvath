@@ -37,7 +37,7 @@ const Bucketlist = () => {
   };
 
   const updateBucketlistItem = (id, comment) => {
-    const body= {
+    const body = {
       comment,
     };
 
@@ -77,6 +77,22 @@ const Bucketlist = () => {
     <>
       <div className="bucketlist-container">
         <div className="bucketlist">
+          <div className="bucketlist-header">
+            <div className="bucketlist-row-checkbox"></div>
+            <div className="bucketlist-header-text">
+              <div className="bucketlist-header-text-item">
+                <h3>City</h3>
+              </div>
+              <div className="bucketlist-header-text-item">
+                <h3>Country</h3>
+              </div>
+              <div className="bucketlist-header-text-item">
+                <h3>Rating</h3>
+              </div>
+              <div className="bucketlist-row-buttons"></div>
+              <div className="bucketlist-row-buttons"></div>
+            </div>
+          </div>
           {bucketlist.map((destination) => (
             <BucketlistItem
               destination={destination}
