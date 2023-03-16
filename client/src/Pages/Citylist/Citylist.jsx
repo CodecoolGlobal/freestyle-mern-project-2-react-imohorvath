@@ -18,6 +18,8 @@ const Citylist = () => {
   const [loading, setLoading] = useState(true);
   const [countryList, setCountryList] = useState([]);
   const [filterValue, setFilterValue] = useState("");
+  const [sortColumn, setSortColumn] = useState(null);
+  const [sortOrder, setSortOrder] = useState(null);
 
   useEffect(() => {
     setLoading(true);
@@ -37,6 +39,20 @@ const Citylist = () => {
         console.log(`An error occurred at fetching from /api/cities:${error}`)
       );
   }, []);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(`api/cities?${sortColumn}=${sortOrder}`)
+    .then((res) => res.json())
+    .then((result) => {
+      setCityList(result);
+      setOriginalList(result);
+      setLoading(false);
+    })
+    .catch((error) =>
+      console.log(`An error occurred at fetching from /api/cities:${error}`)
+    );
+  }, [sortColumn, sortOrder]);
 
   if (loading) {
     return <Loading />;
@@ -58,6 +74,27 @@ const Citylist = () => {
     setCityList(filtered);
   };
 
+  const handleSort = (column) => {
+    if (sortColumn === column) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortColumn(column);
+      setSortOrder("asc");
+    }
+  };
+
+  const getArrowIcon = (column) => {
+    if (sortColumn === column) {
+      if (sortOrder === "asc") {
+        return "▲";
+      } else {
+        return "▼";
+      }
+    } else {
+      return "▽";
+    }
+  };
+
   return (
     <>
       <div className="city-container">
@@ -72,14 +109,20 @@ const Citylist = () => {
         />
         <div className="city-list">
           <div className="citylist-header">
-            <div className="citylist-header-item">
-              <h3>City</h3>
+            <div className="citylist-header-item" onClick={() => handleSort("name")}>
+              <h3>City {getArrowIcon("name")}</h3>
             </div>
-            <div className="citylist-header-item">
-              <h3>Country</h3>
+            <div
+              className="citylist-header-item"
+              onClick={() => handleSort("country")}
+            >
+              <h3>Country {getArrowIcon("country")}</h3>
             </div>
-            <div className="citylist-header-item">
-              <h3>Visitor reviews</h3>
+            <div
+              className="citylist-header-item"
+              onClick={() => handleSort("reviews")}
+            >
+              <h3>Visitor reviews {getArrowIcon("reviews")}</h3>
             </div>
             <div className="citylist-header-empty"></div>
           </div>
