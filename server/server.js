@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const express = require("express");
 const FavouriteModel = require("./model/favourite.model");
 
-const CityModel = require('./model/city.model');
-const ContactModel = require('./model/contact.model');
+const CityModel = require("./model/city.model");
+const ContactModel = require("./model/contact.model");
 
 const { MONGO_URL, PORT = 8080 } = process.env;
 
@@ -50,18 +50,36 @@ app.get("/api/cities", async (req, res) => {
   }
 });
 
-app.get("/api/bucketlist", async (req, res) => {
 
-  const list = await FavouriteModel.find().populate("city");
-  res.json(list);
+app.get("/api/bucketlist", async (req, res, next) => {
+  
+  try {
+    if (req.query.cityid) {
+      const cityId = req.query.cityid;
+      const bucketlistItem = await FavouriteModel.findOne({ city: cityId });
+      res.json(bucketlistItem);
+    } else {
+      const list = await FavouriteModel.find().populate("city");
+      res.json(list);
+    }
+  } catch (error) {
+    return next(error);
+  }
 
-  // try {
-  //   const list = await FavouriteModel.find().populate("city");
-  //   res.status(200).json(list);
-  // } catch (error) {
-  //   console.error(error);
-  //   res.status(500).json({ success: false });
+  // let query = FavouriteModel.find();
+  // if (req.query.name) {
+  //   query = query.find({name: req.query.name});
   // }
+  // if (req.query.price) {
+  //   query = query.find({name: req.query.price});
+  // }
+  // if (req.query.order) {
+  //   query = query.sort({[req.query.order]: 'ASC'});
+  // }
+  // if (req.query.order) {
+  //   query = query.limit(10);
+  // }
+  // const favourites = await query;
 });
 
 app.post("/api/bucketlist", async (req, res, next) => {
@@ -104,12 +122,9 @@ app.delete("/api/bucketlist/:id", async (req, res, next) => {
 
 app.patch("/api/bucketlist/update-visited/:id", async (req, res) => {
   const id = req.params.id;
-
   const bucketItem = await FavouriteModel.findById(id);
-
-  //erre is azért van szükség, mert elvileg nem tudom módosítani
-  // egy findByIdandUpdateben a visited értékét
-  // így meg lehet toggle-ni
+  // erre is azért van szükség, mert elvileg nem tudom módosítani
+  // egy findByIdandUpdateben a visited értékét így meg lehet toggle-ni
   bucketItem.visited = !bucketItem.visited;
   const saved = await bucketItem.save();
 
@@ -124,9 +139,9 @@ app.get("/api/contacts", async (req, res) => {
 app.post("/api/contacts", async (req, res, next) => {
   try {
     const saved = await ContactModel.create(req.body);
-    res.json(saved)
+    res.json(saved);
   } catch (error) {
-    return next(error)
+    return next(error);
   }
 });
 

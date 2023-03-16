@@ -3,10 +3,10 @@ import planelogo from "../../img/paper-plane.png";
 
 import "./Header.css";
 
-const Header = ({ deleteClicked, setDeleteClicked }) => {
+const Header = () => {
   let location = useLocation();
 
-  function HeaderButton({ route, onClickEvent, children }) {
+  function HeaderButton({ route, children }) {
     return (
       <button
         className={
@@ -14,7 +14,6 @@ const Header = ({ deleteClicked, setDeleteClicked }) => {
             ? "nav-button nav-button-active"
             : "nav-button"
         }
-        onClick={onClickEvent}
       >
         <Link to={route} className="link">
           {children}
@@ -32,12 +31,7 @@ const Header = ({ deleteClicked, setDeleteClicked }) => {
         </div>
         <div className="navbar">
           <HeaderButton route="/">Cities</HeaderButton>
-          <HeaderButton
-            route="/bucketlist"
-            onClickEvent={() => setDeleteClicked(!deleteClicked)}
-          >
-            Bucket List
-          </HeaderButton>
+          <HeaderButton route="/bucketlist">Bucket List</HeaderButton>
           <HeaderButton route="/contactus">Contact Us</HeaderButton>
         </div>
       </div>

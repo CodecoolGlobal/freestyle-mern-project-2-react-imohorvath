@@ -13,7 +13,6 @@ const CitySchema = new Schema({
     sights: [String],
     image_url: String,
     color: String,
-    reviews: Number,
 });
 
 module.exports = mongoose.model("City", CitySchema);
