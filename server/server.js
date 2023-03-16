@@ -32,9 +32,22 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((error) => console.error(error));
 
+// api/cities?name=asc
 app.get("/api/cities", async (req, res) => {
-  const cities = await CityModel.find({});
-  res.json(cities);
+
+  if (req.query.name) {
+    const cities = await CityModel.find({}).sort({ name: req.query.name });
+    res.json(cities);
+  } else if (req.query.country) {
+    const cities = await CityModel.find({}).sort({ country: req.query.country });
+    res.json(cities);
+  } else if (req.query.reviews) {
+    const cities = await CityModel.find({}).sort({ reviews: req.query.reviews });
+    res.json(cities);
+  } else {
+    const cities = await CityModel.find({});
+    res.json(cities);
+  }
 });
 
 app.get("/api/bucketlist", async (req, res) => {
@@ -53,7 +66,7 @@ app.get("/api/bucketlist", async (req, res) => {
 
 app.post("/api/bucketlist", async (req, res, next) => {
   const bucketlistItem = req.body;
-  
+
   try {
     const saved = await FavouriteModel.create(bucketlistItem);
     res.json(saved);
@@ -64,12 +77,12 @@ app.post("/api/bucketlist", async (req, res, next) => {
 
 app.patch("/api/bucketlist/:id", async (req, res, next) => {
   const id = req.params.id;
-  
+
   try {
     const comment = req.body.comment;
 
     const bucketlistItem = await FavouriteModel.findOneAndUpdate(
-      { _id: id},
+      { _id: id },
       { comment },
       { new: true }
     );

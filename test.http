@@ -25,3 +25,7 @@ Content-Type: application/json
   "message": "Hello, your page is awesome",
   "subscribe": true
 }
+
+###
+GET http://localhost:4000/api/cities?reviews=asc
+
