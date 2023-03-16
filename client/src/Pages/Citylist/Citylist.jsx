@@ -41,6 +41,10 @@ const Citylist = () => {
   }, []);
 
   useEffect(() => {
+    if (!sortColumn) {
+      return;
+    }
+
     setLoading(true);
     fetch(`api/cities?${sortColumn}=${sortOrder}`)
     .then((res) => res.json())
@@ -58,18 +62,11 @@ const Citylist = () => {
     return <Loading />;
   }
 
-  const handleSearch = (e) => {
-    setSearchValue(e.target.value);
-    const filtered = originalList.filter((city) =>
-      city.name.toLowerCase().includes(e.target.value.toLowerCase())
-    );
-    setCityList(filtered);
-  };
-
   const handleFilter = (e) => {
-    setFilterValue(e.target.value);
+    const { target: { value } } = e;
+    setFilterValue(value);
     const filtered = originalList.filter((city) =>
-      city.country.toLowerCase().includes(e.target.value.toLowerCase())
+      city.country.toLowerCase().includes(value.toLowerCase())
     );
     setCityList(filtered);
   };
@@ -100,12 +97,12 @@ const Citylist = () => {
       <div className="city-container">
         <CitySearch
           searchValue={searchValue}
-          handleSearch={(e) => handleSearch(e)}
+          onSearch={(e) => handleFilter(e)}
         />
         <CityFilter
           filterValue={filterValue}
           countries={countryList}
-          handleFilter={(e) => handleFilter(e)}
+          onFilter={(e) => handleFilter(e)}
         />
         <div className="city-list">
           <div className="citylist-header">

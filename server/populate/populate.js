@@ -47,6 +47,24 @@ const populateCities = async () => {
   console.log("Cities created");
 };
 
+const updateAll = async () => {
+  const cities = await CityModel.find();
+
+  // first naive implementation
+  /*for (const city of cities) {
+    city.color = createRandomHex();
+    city.kek = 'lol';
+    await city.save();
+  }*/
+
+  const tasks = cities.map((city) => {
+    city.color = createRandomHex();
+    return city.save();
+  });
+
+  await Promise.all(tasks);
+}
+
 // TODO megoldani úgy a meglévő key-nek a létrehozását úgy oldjuk, hogy nem hozunk létre egy teljesen új listát!!!
 // const updateWithRandomValues = async () => {
   //Ez nem jó, mert mindegyikhez ugyanazt az értéket állítja be

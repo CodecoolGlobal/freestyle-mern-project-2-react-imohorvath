@@ -1,8 +1,6 @@
 import "./CityFilter.css";
-import React, { useState, useEffect } from 'react';
 
-const CityFilter = ({filterValue, countries, handleFilter}) => {
-
+const CityFilter = ({ filterValue, countries, onFilter }) => {
   return (
     <div className="city-filter">
       <div className="city-filter-input">
@@ -14,13 +12,15 @@ const CityFilter = ({filterValue, countries, handleFilter}) => {
           list="countryList"
           value={filterValue}
           onChange={(e) => {
-            handleFilter(e);
+            onFilter(e);
           }}
         />
         <datalist id="countryList">
-          {countries.map((country, index) => 
-            <option key={index} value={country}>{country}</option>
-          )}
+          {countries.map((country, index) => (
+            <option key={index} value={country}>
+              {country}
+            </option>
+          ))}
         </datalist>
       </div>
     </div>

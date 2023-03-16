@@ -3,7 +3,7 @@ import RatingDiv from "../RatingDiv";
 
 import "./CitySubmit.css";
 
-const CitySubmit = ({ city, onSubmit, isOnBucketlist }) => {
+const CitySubmit = ({ city, onSubmit, onCancel, isOnBucketlist }) => {
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
   const [isMessage, setIsMessage] = useState(false);
@@ -53,7 +53,7 @@ const CitySubmit = ({ city, onSubmit, isOnBucketlist }) => {
         >
           I want to add anyway
         </button>
-        <button className="message-for-user-button">Cancel for now</button>
+        <button className="message-for-user-button" onClick={onCancel}>Cancel for now</button>
       </div>
     </div>
   ) : (
@@ -68,7 +68,7 @@ const CitySubmit = ({ city, onSubmit, isOnBucketlist }) => {
             onChange={(e) => setComment(e.target.value)}
           />
         </div>
-        <RatingDiv rating={rating} handleRatingClick={handleRatingClick} />
+        <RatingDiv rating={rating} onRatingClick={handleRatingClick} />
         <div className="submit-button-div">
           <button className="submit-to-favs" onClick={handleSubmit}>
             Add to list

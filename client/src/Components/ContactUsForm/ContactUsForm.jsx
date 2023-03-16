@@ -1,12 +1,8 @@
 import "./ContactUsForm.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const ContactUsForm = ({ onSave }) => {
   const [isSubscribed, setIsSubscribed] = useState(false);
-
-  useEffect(() => {
-    console.log(isSubscribed);
-  }, [isSubscribed]);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +11,7 @@ const ContactUsForm = ({ onSave }) => {
     contact.subscribe = isSubscribed;
     console.log(contact);
     onSave(contact);
+    e.target.reset();
   };
 
   return (
@@ -59,7 +56,7 @@ const ContactUsForm = ({ onSave }) => {
             type="checkbox"
             id="subscribeNews"
             name="subscribe"
-            defaultChecked={false}
+            checked={isSubscribed}
             onChange={(e) => setIsSubscribed(e.target.checked)}
           />
         </div>

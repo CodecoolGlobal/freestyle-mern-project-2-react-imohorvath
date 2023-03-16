@@ -1,12 +1,12 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
-const FavouriteModel = require("./model/favourite.model");
 
+const FavouriteModel = require("./model/favourite.model");
 const CityModel = require("./model/city.model");
 const ContactModel = require("./model/contact.model");
 
-const { MONGO_URL, PORT = 8080 } = process.env;
+const { MONGO_URL, PORT = 4000 } = process.env;
 
 if (!MONGO_URL) {
   console.error("Missing MONGO_URL environment variable");
@@ -16,47 +16,32 @@ if (!MONGO_URL) {
 const app = express();
 app.use(express.json());
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
-
-mongoose
-  .connect(MONGO_URL, {
-    family: 4,
-  })
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((error) => console.error(error));
-
 // api/cities?name=asc
 app.get("/api/cities", async (req, res) => {
+  const cities = await CityModel.find({}).sort(req.query);
 
-  if (req.query.name) {
-    const cities = await CityModel.find({}).sort({ name: req.query.name });
-    res.json(cities);
+  /*if (req.query.name) {
+    cities = await CityModel.find({}).sort({ name: req.query.name });
   } else if (req.query.country) {
-    const cities = await CityModel.find({}).sort({ country: req.query.country });
-    res.json(cities);
+    cities = await CityModel.find({}).sort({
+      country: req.query.country,
+    });
   } else if (req.query.reviews) {
-    const cities = await CityModel.find({}).sort({ reviews: req.query.reviews });
-    res.json(cities);
+    cities = await CityModel.find({}).sort({
+      reviews: req.query.reviews,
+    });
   } else {
-    const cities = await CityModel.find({});
-    res.json(cities);
-  }
+    cities = await CityModel.find({});
+  }*/
+
+  res.json(cities);
 });
 
-
 app.get("/api/bucketlist", async (req, res, next) => {
-  
   try {
     if (req.query.cityid) {
-      const cityId = req.query.cityid;
-      const bucketlistItem = await FavouriteModel.findOne({ city: cityId });
+      const { cityid } = req.query;
+      const bucketlistItem = await FavouriteModel.findOne({ city: cityid });
       res.json(bucketlistItem);
     } else {
       const list = await FavouriteModel.find().populate("city");
@@ -97,11 +82,9 @@ app.patch("/api/bucketlist/:id", async (req, res, next) => {
   const id = req.params.id;
 
   try {
-    const comment = req.body.comment;
-
     const bucketlistItem = await FavouriteModel.findOneAndUpdate(
       { _id: id },
-      { comment },
+      { $set: req.body },
       { new: true }
     );
     res.json(bucketlistItem);
@@ -120,7 +103,7 @@ app.delete("/api/bucketlist/:id", async (req, res, next) => {
   }
 });
 
-app.patch("/api/bucketlist/update-visited/:id", async (req, res) => {
+/*app.patch("/api/bucketlist/update-visited/:id", async (req, res) => {
   const id = req.params.id;
   const bucketItem = await FavouriteModel.findById(id);
   // erre is azért van szükség, mert elvileg nem tudom módosítani
@@ -129,7 +112,7 @@ app.patch("/api/bucketlist/update-visited/:id", async (req, res) => {
   const saved = await bucketItem.save();
 
   res.json(saved);
-});
+});*/
 
 app.get("/api/contacts", async (req, res) => {
   const contacts = await ContactModel.find({});
@@ -145,4 +128,14 @@ app.post("/api/contacts", async (req, res, next) => {
   }
 });
 
-app.listen(4000, () => console.log("The server is running on port 4000"));
+const main = async () => {
+  await mongoose
+    .connect(MONGO_URL, {
+      family: 4,
+    })
+    .then(() => console.log("Connected to MongoDB"));
+
+  app.listen(PORT, () => console.log(`The server is running on port ${PORT}`));
+};
+
+main().catch((error) => console.error(error));
