@@ -15,7 +15,7 @@ const BucketlistItem = ({ destination, onDelete, onUpdate, onChange }) => {
     setNewComment(newComment);
     setShowUpdateField(!showUpdateField);
 
-    onUpdate(destination._id, newComment);
+    onChange(destination._id, newComment, 'comment');
   };
 
   return (
@@ -28,12 +28,12 @@ const BucketlistItem = ({ destination, onDelete, onUpdate, onChange }) => {
         {destination.visited ? (
           <TbCheckbox
             className="checkbox"
-            onClick={() => onChange(destination._id)}
+            onClick={() => onChange(destination._id, !destination.visited, 'visited')}
           />
         ) : (
           <TbSquare
             className="checkbox"
-            onClick={() => onChange(destination._id)}
+            onClick={() => onChange(destination._id, !destination.visited, 'visited')}
           />
         )}
       </div>

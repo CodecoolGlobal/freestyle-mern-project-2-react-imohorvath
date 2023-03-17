@@ -66,7 +66,6 @@ app.patch("/api/bucketlist/:id", async (req, res, next) => {
   const id = req.params.id;
 
   try {
-    if (req.body.comment || req.body.rating) {
       const updated = await FavouriteModel.findOneAndUpdate(
         { _id: id },
         { $set: req.body },
@@ -74,18 +73,35 @@ app.patch("/api/bucketlist/:id", async (req, res, next) => {
       ).populate("city");
 
       res.json(updated);
-
-    } else {
-      const fav = await FavouriteModel.findById(id).populate("city");
-      fav.visited = !fav.visited;
-      const updated = await fav.save();
-
-      res.json(updated);
-    }
   } catch (error) {
     return next(error);
   }
 });
+
+// app.patch("/api/bucketlist/:id", async (req, res, next) => {
+//   const id = req.params.id;
+
+//   try {
+//     if (req.body.comment || req.body.rating) {
+//       const updated = await FavouriteModel.findOneAndUpdate(
+//         { _id: id },
+//         { $set: req.body },
+//         { new: true }
+//       ).populate("city");
+
+//       res.json(updated);
+
+//     } else {
+//       const fav = await FavouriteModel.findById(id).populate("city");
+//       fav.visited = !fav.visited;
+//       const updated = await fav.save();
+
+//       res.json(updated);
+//     }
+//   } catch (error) {
+//     return next(error);
+//   }
+// });
 
 app.delete("/api/bucketlist/:id", async (req, res, next) => {
   const id = req.params.id;

@@ -34,7 +34,7 @@ label {
 }
 
 #submitContactUs {
-  width: 40%;
+  width: 10%;
   height: 50%;
   font-family: "Barlow Condensed";
   font-size: 1.1em;
@@ -49,4 +49,11 @@ label {
 
 .contact-header {
   margin: 5%;
+}
+
+.inputDiv-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
