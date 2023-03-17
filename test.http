@@ -2,6 +2,14 @@ GET http://localhost:4000/api/cities
 
 
 ###
+POST http://localhost:4000/api/cities/64132dd73cc335024a9d8381/sights
+Content-Type: application/json
+
+{
+  "sight": "Sarah Jessica Parker"
+}
+
+###
 GET http://localhost:4000/api/bucketlist
 
 

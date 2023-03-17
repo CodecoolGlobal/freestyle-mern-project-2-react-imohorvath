@@ -66,16 +66,33 @@ app.patch("/api/bucketlist/:id", async (req, res, next) => {
   const id = req.params.id;
 
   try {
-      const updated = await FavouriteModel.findOneAndUpdate(
-        { _id: id },
-        { $set: req.body },
-        { new: true }
-      ).populate("city");
+    const updated = await FavouriteModel.findOneAndUpdate(
+      { _id: id },
+      { $set: req.body },
+      { new: true }
+    ).populate("city");
 
-      res.json(updated);
+    res.json(updated);
   } catch (error) {
     return next(error);
   }
+});
+
+/*app.post('/api/cities/:id/sights', async (req, res) => {
+  const city = await CityModel.findById(req.params.id);
+  city.sights.push(req.body.sight);
+  await city.save();
+  res.json(city);
+});*/
+
+app.post("/api/cities/:id/sights", async (req, res) => {
+  const city = await CityModel.findOneAndUpdate(
+    { _id: req.params.id },
+    { $push: { sights: req.body.sight } },
+    { new: true }
+  );
+
+  res.json(city);
 });
 
 // app.patch("/api/bucketlist/:id", async (req, res, next) => {

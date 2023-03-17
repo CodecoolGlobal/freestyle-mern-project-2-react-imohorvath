@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createBucketListItem } from "../../api/bucketList";
 import RatingDiv from "../RatingDiv";
 
 import "./CitySubmit.css";
@@ -16,14 +17,7 @@ const CitySubmit = ({ city, onSubmit, bucketListId }) => {
       rating,
     };
 
-    fetch("/api/bucketlist", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    })
-      .then((response) => response.json())
+    createBucketListItem(body)
       .then((response) => {
         console.log(response);
       })

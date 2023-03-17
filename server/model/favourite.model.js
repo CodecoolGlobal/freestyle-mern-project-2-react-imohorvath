@@ -5,7 +5,7 @@ const favouriteSchema = new Schema({
   city: {
     type: Schema.Types.ObjectId,
     ref: 'City'
-  },
+  }, // foreign key
   comment: String,
   rating: Number,
   createdAt: {
