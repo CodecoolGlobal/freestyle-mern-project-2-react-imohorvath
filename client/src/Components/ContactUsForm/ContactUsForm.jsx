@@ -63,7 +63,7 @@ const ContactUsForm = ({ onSave }) => {
           />
         </div>
 
-        <div className="inputDiv">
+        <div className="inputDiv-button">
           <input type="submit" id="submitContactUs" />
         </div>
       </form>
