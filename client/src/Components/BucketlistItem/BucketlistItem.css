@@ -15,7 +15,7 @@
     text-decoration: line-through;
   }
 
-  .checked-button {
+  .disabled-button {
     width: 70%;
     height: 50%;
     font-family: "Barlow Condensed";

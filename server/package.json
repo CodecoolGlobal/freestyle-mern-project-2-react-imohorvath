@@ -9,6 +9,7 @@
   },
   "scripts": {
     "dev": "nodemon server.js",
-    "populate": "node ./populate/populate.js"
+    "populate": "node ./populate/populate.js",
+    "update": "node ./populate/update.js"
   }
 }

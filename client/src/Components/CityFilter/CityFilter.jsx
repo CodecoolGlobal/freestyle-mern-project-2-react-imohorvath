@@ -1,7 +1,6 @@
 import "./CityFilter.css";
-import React, { useState, useEffect } from 'react';
 
-const CityFilter = ({filterValue, countries, handleFilter}) => {
+const CityFilter = ({filterValue, countries, onFilter}) => {
 
   return (
     <div className="city-filter">
@@ -14,7 +13,7 @@ const CityFilter = ({filterValue, countries, handleFilter}) => {
           list="countryList"
           value={filterValue}
           onChange={(e) => {
-            handleFilter(e);
+            onFilter(e);
           }}
         />
         <datalist id="countryList">

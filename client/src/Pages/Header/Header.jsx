@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
-import planelogo from "../../img/paper-plane.png";
+import planelogo from "../../img/paper-plane-1.png";
 
 import "./Header.css";
 

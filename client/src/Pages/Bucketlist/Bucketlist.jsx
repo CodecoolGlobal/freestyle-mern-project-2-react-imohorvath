@@ -49,27 +49,42 @@ const Bucketlist = () => {
       body: JSON.stringify(body),
     })
       .then((res) => res.json())
-      .then(() => {
-        setLoading(true);
+      .then((city) => {
+        setBucketlist(list => list.map(fav => {
+          if (city._id !== fav._id) {
+            return fav;
+          }
+
+          return {
+            ...fav,
+            ...city
+          };
+        }))
+
+        /*setLoading(true);
         fetchBucketlist().then((bucketlist) => {
           setBucketlist(bucketlist);
           setLoading(false);
-        });
+        });*/
       });
   };
 
-  //Itt kell headers? vagy body?
   const changeBucketlistItem = (id) => {
-    fetch(`/api/bucketlist/update-visited/${id}`, {
+    fetch(`/api/bucketlist/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
-      .then(() => {
-        setLoading(true);
-        fetchBucketlist().then((bucketlist) => {
-          setBucketlist(bucketlist);
-          setLoading(false);
-        });
+      .then((city) => {
+        setBucketlist(list => list.map(fav => {
+          if (city._id !== fav._id) {
+            return fav;
+          }
+
+          return {
+            ...fav,
+            ...city
+          };
+        }));
       });
   };
 

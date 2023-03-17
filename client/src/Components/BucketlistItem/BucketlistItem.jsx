@@ -6,18 +6,14 @@ import { TbSquare, TbCheckbox } from "react-icons/tb";
 import "./BucketlistItem.css";
 
 const BucketlistItem = ({ destination, onDelete, onUpdate, onChange }) => {
-  const [updateClicked, setUpdateClicked] = useState(false);
+  const [showUpdateField, setShowUpdateField] = useState(false);
   const [newComment, setNewComment] = useState(destination.comment);
-
-  const changeCommentField = () => {
-    setUpdateClicked(!updateClicked);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setNewComment(newComment);
-    setUpdateClicked(!updateClicked);
+    setShowUpdateField(!showUpdateField);
 
     onUpdate(destination._id, newComment);
   };
@@ -64,17 +60,17 @@ const BucketlistItem = ({ destination, onDelete, onUpdate, onChange }) => {
             ))}
           </div>
           <div className="bucketlist-row-buttons">
-            {updateClicked ? (
-              <button className="function-button" onClick={changeCommentField}>
+            {showUpdateField ? (
+              <button className="function-button" onClick={() => setShowUpdateField(!showUpdateField)}>
                 Cancel
               </button>
             ) : (
               <button
                 className={
-                  destination.visited ? "checked-button" : "function-button"
+                  destination.visited ? "disabled-button" : "function-button"
                 }
                 disabled={destination.visited ? true : false}
-                onClick={changeCommentField}
+                onClick={() => setShowUpdateField(!showUpdateField)}
               >
                 Update
               </button>
@@ -90,7 +86,7 @@ const BucketlistItem = ({ destination, onDelete, onUpdate, onChange }) => {
           </div>
         </div>
         <div className="bucketlist-row-text-bottom">
-          {updateClicked ? (
+          {showUpdateField ? (
             <>
               <input
                 className="comment-update-input"

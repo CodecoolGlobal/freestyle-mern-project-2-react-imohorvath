@@ -2,10 +2,9 @@ import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
 
 import "./RatingDiv.css";
 
-const RatingDiv = ({ rating, handleRatingClick }) => {
+const RatingDiv = ({ rating, onRatingClick }) => {
   return (
     <div className="rating-div">
-      {/* <p>Rating</p> */}
       <div className="rating-icons">
         {[...Array(5)].map((_, index) => {
           return rating >= index + 1 ? (
@@ -13,14 +12,14 @@ const RatingDiv = ({ rating, handleRatingClick }) => {
               key={index}
               id={`rating-${index + 1}`}
               className="rating-icon-filled"
-              onClick={() => handleRatingClick(index + 1)}
+              onClick={() => onRatingClick(index + 1)}
             />
           ) : (
             <BsSuitHeart
               key={index}
               id={`rating-${index + 1}`}
               className="rating-icon"
-              onClick={() => handleRatingClick(index + 1)}
+              onClick={() => onRatingClick(index + 1)}
             />
           );
         })}

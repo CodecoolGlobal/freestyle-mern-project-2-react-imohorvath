@@ -3,12 +3,11 @@ import RatingDiv from "../RatingDiv";
 
 import "./CitySubmit.css";
 
-const CitySubmit = ({ city, onSubmit, isOnBucketlist }) => {
+const CitySubmit = ({ city, onSubmit, bucketListId }) => {
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
-  const [isMessage, setIsMessage] = useState(false);
 
-  function handleSubmit(e) {
+  const handleCreateNew = (e) => {
     e.preventDefault();
 
     const body = {
@@ -36,28 +35,48 @@ const CitySubmit = ({ city, onSubmit, isOnBucketlist }) => {
     onSubmit();
   }
 
-  function handleRatingClick(rating) {
+  const handleModify = (e) => {
+    e.preventDefault();
+
+    const body = {
+      comment,
+      rating,
+    };
+
+    fetch(`/api/bucketlist/${bucketListId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    setComment("");
+    onSubmit();
+  }
+
+  const handleRatingClick = (rating) => {
     setRating(rating);
   }
 
-  return isOnBucketlist ? (
+  return (
     <div className="city-submit">
-      <p>
-        This city is already on your bucketlist if you will add it it will
-        modify the current item on the bucketlist
-      </p>
-      <div className="message-for-user-buttons">
-        <button
-          className="message-for-user-button"
-          onClick={() => setIsMessage(false)}
-        >
-          I want to add anyway
-        </button>
-        <button className="message-for-user-button">Cancel for now</button>
-      </div>
-    </div>
-  ) : (
-    <div className="city-submit">
+      {bucketListId && (
+        <div className="message-for-user">
+          <p>
+            If you click on ADD ANYWAY, you will modify the current item on the
+            bucketlist with the given parameters.
+          </p>
+          <p>Press Cancel to close this card.</p>
+        </div>
+      )}
       <div className="comment-input-container">
         <div className="comment-div">
           <input
@@ -68,10 +87,10 @@ const CitySubmit = ({ city, onSubmit, isOnBucketlist }) => {
             onChange={(e) => setComment(e.target.value)}
           />
         </div>
-        <RatingDiv rating={rating} handleRatingClick={handleRatingClick} />
+        <RatingDiv rating={rating} onRatingClick={handleRatingClick} />
         <div className="submit-button-div">
-          <button className="submit-to-favs" onClick={handleSubmit}>
-            Add to list
+          <button className="submit-to-favs" onClick={bucketListId ? handleModify : handleCreateNew}>
+            {bucketListId ? "ADD ANYWAY" : "ADD TO LIST"}
           </button>
         </div>
       </div>

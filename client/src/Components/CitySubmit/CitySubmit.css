@@ -1,7 +1,7 @@
 .city-submit {
   font-family: "Barlow Condensed";
   width: 60%;
-  height: 25vmin;
+  height: 30vmin;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,10 +9,11 @@
   border: black solid 1px;
 }
 
-.message-for-user p {
-
+.message-for-user {
+  font-size: 2.5vmin; 
 }
 
+/*
 .message-for-user-buttons {
   width: 100%;
   height: 100%;
@@ -24,20 +25,20 @@
 .message-for-user-button {
   width: 30%;
   height: 40%;
-}
+} */
 
 .comment-input-container {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   font-size: 1.1em;
 }
 
 .comment-div {
   padding: 2%;
-  width: 40%;
+  width: 30%;
 }
 
 .comment-input {
@@ -56,14 +57,22 @@
 }
 
 .submit-button-div {
-  padding: 1%;
-  width: 30%;
+  padding: 2%;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .submit-to-favs {
+  width: 70%;
+  height: 75%;
   font-family: "Barlow Condensed";
   font-size: 1.1em;
   color: white;
+  border: transparent;
   background-color: black;
   cursor: pointer;
 }

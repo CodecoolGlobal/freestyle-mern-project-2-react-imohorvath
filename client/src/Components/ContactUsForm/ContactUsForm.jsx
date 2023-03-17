@@ -1,20 +1,19 @@
 import "./ContactUsForm.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const ContactUsForm = ({ onSave }) => {
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  useEffect(() => {
-    console.log(isSubscribed);
-  }, [isSubscribed]);
-
   const onSubmit = (e) => {
     e.preventDefault();
+    
     const formData = new FormData(e.target);
     const contact = Object.fromEntries(formData.entries());
     contact.subscribe = isSubscribed;
-    console.log(contact);
+
     onSave(contact);
+
+    e.target.reset();
   };
 
   return (

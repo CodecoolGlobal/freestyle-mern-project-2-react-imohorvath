@@ -5,10 +5,10 @@
       "continent": "Europe",
       "timezone": "CET",
       "population": 2165423,
-      "official_language": "French",
+      "officialLanguage": "French",
       "currency": "Euro",
       "sights": ["Eiffel Tower", "Notre Dame", "Louvre", "Arc de Triomphe", "Montmartre"],
-      "image_url": "https://images.unsplash.com/photo-1435164205788-305635a36ec2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+      "imageUrl": "https://images.unsplash.com/photo-1435164205788-305635a36ec2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
     },
     {
       "name": "New York City",
@@ -16,10 +16,10 @@
       "continent": "North America",
       "timezone": "EST",
       "population": 8804190,
-      "official_language": "English",
+      "officialLanguage": "English",
       "currency": "US Dollar",
       "sights": ["Central Park", "Empire State Building", "Statue of Liberty", "The Metropolitan Museum of Art", "Times Square"],
-      "image_url": "https://images.unsplash.com/25/black-white-city.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
+      "imageUrl": "https://images.unsplash.com/25/black-white-city.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
     },
     {
       "name": "Tokyo",
@@ -27,10 +27,10 @@
       "continent": "Asia",
       "timezone": "JST",
       "population": 14047594,
-      "official_language": "Japanese",
+      "officialLanguage": "Japanese",
       "currency": "Japanese yen",
       "sights": ["Senso-ji Temple", "Shinjuku Gyoen National Garden", "Meiji Jingu Shrine", "Ueno Park", "Ginza"],
-      "image_url": "https://images.unsplash.com/photo-1567929287189-631b5c1878d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+      "imageUrl": "https://images.unsplash.com/photo-1567929287189-631b5c1878d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
     },
     {
       "name": "London",
@@ -38,10 +38,10 @@
       "continent": "Europe",
       "timezone": "GMT",
       "population": 8908081,
-      "official_language": "English",
+      "officialLanguage": "English",
       "currency": "Pound Sterling",
       "sights": ["Tower of London", "The British Museum", "Hyde Park", "Westminster Abbey", "London Eye"],
-      "image_url": "https://images.unsplash.com/photo-1610909343746-2a45af2211c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1973&q=80"
+      "imageUrl": "https://images.unsplash.com/photo-1610909343746-2a45af2211c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1973&q=80"
     },
     {
       "name": "Rome",
@@ -49,10 +49,10 @@
       "continent": "Europe",
       "timezone": "CET",
       "population": 2872800,
-      "official_language": "Italian",
+      "officialLanguage": "Italian",
       "currency": "Euro",
       "sights": ["Colosseum", "Roman Forum", "St Peter's Basilica", "Castel Sant'Angelo", "Pantheon"],
-      "image_url": "https://images.unsplash.com/photo-1658938524899-847e78ed9006?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2074&q=80"
+      "imageUrl": "https://images.unsplash.com/photo-1658938524899-847e78ed9006?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2074&q=80"
     },
     {
       "name": "Barcelona",
@@ -60,10 +60,10 @@
       "continent": "Europe",
       "timezone": "CET",
       "population": 1636193,
-      "official_language": "Spanish, Catalan",
+      "officialLanguage": "Spanish, Catalan",
       "currency": "Euro",
       "sights": ["The Sagrada Familia", "Casa Mila", "Park Güell", "The cathedral of Barcelona", "Columbus Monument"],
-      "image_url": "https://images.squarespace-cdn.com/content/v1/5dc98ce1845d6d42600bc5b9/1576363666181-YIP3SAEZ825NHXU2H3PC/med-edd--Jb3ClzUmxQ-unsplash.jpg?format=2500w"
+      "imageUrl": "https://images.squarespace-cdn.com/content/v1/5dc98ce1845d6d42600bc5b9/1576363666181-YIP3SAEZ825NHXU2H3PC/med-edd--Jb3ClzUmxQ-unsplash.jpg?format=2500w"
     },
     {
       "name": "Bangkok",
@@ -71,10 +71,10 @@
       "continent": "Asia",
       "timezone": "ICT",
       "population": 5676648,
-      "official_language": "Thai",
+      "officialLanguage": "Thai",
       "currency": "Thai baht",
       "sights": ["Grand Palace", "Wat Pho", "MahaNakhon", "Khao San Road", "Wat Arun"],
-      "image_url": "https://www.thephoblographer.com/wp-content/uploads/2017/01/RicohGR_Thailand_Stead_01.jpg"
+      "imageUrl": "https://www.thephoblographer.com/wp-content/uploads/2017/01/RicohGR_Thailand_Stead_01.jpg"
     },
     {
       "name": "Istanbul",
@@ -82,10 +82,10 @@
       "continent": "Europe/Asia",
       "timezone": "EET",
       "population": 15462452,
-      "official_language": "Turkish",
+      "officialLanguage": "Turkish",
       "currency": "Turkish lira",
       "sights": ["Hagia Sophia Mosque", "Basilica Cistern", "Topkapi Palace", "Blue Mosque", "Sultanahmet District"],
-      "image_url": "https://images.unsplash.com/photo-1587893905384-a7e56f8a41d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
+      "imageUrl": "https://images.unsplash.com/photo-1587893905384-a7e56f8a41d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
     },
     {
       "name": "Dubai",
@@ -93,10 +93,10 @@
       "continent": "Asia",
       "timezone": "GST",
       "population": 3331420,
-      "official_language": "Arabic",
+      "officialLanguage": "Arabic",
       "currency": "UAE Dirham",
       "sights": ["The Dubai Fountain", "Burj Khalifa", "Burj Al Arab", "Dubai Miracle Garden", "Global Village"],
-      "image_url": "https://images.unsplash.com/photo-1547222025-74f255f081e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80"
+      "imageUrl": "https://images.unsplash.com/photo-1547222025-74f255f081e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80"
     },
     {
       "name": "Athens",
@@ -104,10 +104,10 @@
       "continent": "Europe",
       "timezone": "EET",
       "population": 664046,
-      "official_language": "Greek",
+      "officialLanguage": "Greek",
       "currency": "Euro",
       "sights": ["Acropolis", "Parthenon", "Temple of Hephaestus", "Plaka", "Acropolis Museum"],
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Acropolis_Of_Athens_Greece_01.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/Acropolis_Of_Athens_Greece_01.jpg"
     },
     {
       "name": "Amsterdam",
@@ -115,10 +115,10 @@
       "continent": "Europe",
       "timezone": "CET",
       "population": 860124,
-      "official_language": "Dutch",
+      "officialLanguage": "Dutch",
       "currency": "Euro",
       "sights": ["Anne Frank House", "Van Gogh Museum", "Rijksmuseum", "Red Light District", "Heineken Experience"],
-      "image_url": "https://images.unsplash.com/photo-1638625127534-4c5078028959?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
+      "imageUrl": "https://images.unsplash.com/photo-1638625127534-4c5078028959?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
     },
     {
       "name": "Brussels",
@@ -126,10 +126,10 @@
       "continent": "Europe",
       "timezone": "CET",
       "population": 188737,
-      "official_language": "Dutch, French, German",
+      "officialLanguage": "Dutch, French, German",
       "currency": "Euro",
       "sights": ["Grand Place", "Atomium", "Musical Instruments Museum", "Parc du Cinquantenaire", "St. Michael and St. Gudula Cathedral"],
-      "image_url": "https://images.pexels.com/photos/2887478/pexels-photo-2887478.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      "imageUrl": "https://images.pexels.com/photos/2887478/pexels-photo-2887478.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       "name": "Marrakech",
@@ -137,10 +137,10 @@
       "continent": "Africa",
       "timezone": "WET",
       "population": 928850,
-      "official_language": "Arabic",
+      "officialLanguage": "Arabic",
       "currency": "Moroccan dirham",
       "sights": ["Jardin Majorelle", "Palácio da Bahia", "Medina of Marrakesh", "Medersa Ben Youssef", "Jemaa el-Fnaa"],
-      "image_url": "https://images.pexels.com/photos/8131369/pexels-photo-8131369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      "imageUrl": "https://images.pexels.com/photos/8131369/pexels-photo-8131369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       "name": "Madrid",
@@ -148,10 +148,10 @@
       "continent": "Europe",
       "timezone": "CET",
       "population": 3280782,
-      "official_language": "Spanish",
+      "officialLanguage": "Spanish",
       "currency": "Euro",
       "sights": ["Royal Palace of Madrid", "Parque del Retiro", "Museo Nacional Thyssen-Bornemisza", "Prado National Museum", "Plaza Mayor"],
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Palacio_de_Cristal_%28El_Retiro%29_Madrid_in_black_and_white.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Palacio_de_Cristal_%28El_Retiro%29_Madrid_in_black_and_white.jpg"
     },
     {
       "name": "Hanoi",
@@ -159,10 +159,10 @@
       "continent": "Asia",
       "timezone": "ICT",
       "population": 8246600,
-      "official_language": "Vietnamese",
+      "officialLanguage": "Vietnamese",
       "currency": "Vietnamese dong",
       "sights": ["Old Quarter", "Temple of Literature", "Lake of the Restored Sword", "Vietnamese Women's Museum", "Vietnam Museum of Ethnology"],
-      "image_url": "https://images.pexels.com/photos/5988345/pexels-photo-5988345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      "imageUrl": "https://images.pexels.com/photos/5988345/pexels-photo-5988345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       "name": "Florence",
@@ -170,10 +170,10 @@
       "continent": "Europe",
       "timezone": "CET",
       "population": 380948,
-      "official_language": "Italian",
+      "officialLanguage": "Italian",
       "currency": "Euro",
       "sights": ["Il Duomo", "Galleria dell'Accademia", "Gallerie Degli Uffizi", "Ponte Vecchio", "Piazzale Michelangelo"],
-      "image_url": "https://images.pexels.com/photos/10486824/pexels-photo-10486824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      "imageUrl": "https://images.pexels.com/photos/10486824/pexels-photo-10486824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       "name": "Edinburgh",
@@ -181,10 +181,10 @@
       "continent": "Europe",
       "timezone": "GMT",
       "population": 518500 ,
-      "official_language": "English, Scots",
+      "officialLanguage": "English, Scots",
       "currency": "Pound Sterling",
       "sights": ["Arthur's Seat", "Royal Yacht Britannia", "Edinburgh Castle", "National Museum of Scotland", "Edinburgh Old Town"],
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Edinburgh_Castle_black_and_white.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/Edinburgh_Castle_black_and_white.jpg"
     },
     {
       "name": "Chicago",
@@ -192,10 +192,10 @@
       "continent": "North America",
       "timezone": "CST",
       "population": 2746388,
-      "official_language": "English",
+      "officialLanguage": "English",
       "currency": "United States dollar",
       "sights": ["The Art Institute of Chicago", "Millennium Park", "Cloud Gate", "The Magnificent Mile", "Museum of Science and Industry"],
-      "image_url": "https://c.pxhere.com/photos/92/80/aeroplane_airplane_architecture_black_and_white_buildings_chicago_city_downtown-1003567.jpg!d"
+      "imageUrl": "https://c.pxhere.com/photos/92/80/aeroplane_airplane_architecture_black_and_white_buildings_chicago_city_downtown-1003567.jpg!d"
     },
     {
       "name": "Glasgow",
@@ -203,10 +203,10 @@
       "continent": "Europe",
       "timezone": "GMT",
       "population": 626410,
-      "official_language": "English, Scots, Gaelic",
+      "officialLanguage": "English, Scots, Gaelic",
       "currency": "Pound Sterling",
       "sights": ["Buchanan Street", "Celtic Park", "The Necropolis", "The Riverside Museum", "Glengoyne Distillery"],
-      "image_url": "https://c.pxhere.com/photos/2d/1e/old_bw_white_black_building_architecture_scotland_university-144699.jpg!d"
+      "imageUrl": "https://c.pxhere.com/photos/2d/1e/old_bw_white_black_building_architecture_scotland_university-144699.jpg!d"
     },
     {
       "name": "Medellín",
@@ -214,10 +214,10 @@
       "continent": "South America",
       "timezone": "COT",
       "population": 2569007,
-      "official_language": "Spanish",
+      "officialLanguage": "Spanish",
       "currency": "Colombian Peso",
       "sights": ["Medellin Metrocable", "Museum Pablo Escobar", "Parque Explora", "Museo de Antioquia", "Laguna de Guatape"],
-      "image_url": "https://live.staticflickr.com/1675/24417172916_d82e8a75e0_c.jpg"
+      "imageUrl": "https://live.staticflickr.com/1675/24417172916_d82e8a75e0_c.jpg"
     },
     {
       "name": "Prague",
@@ -225,10 +225,10 @@
       "continent": "Europe",
       "timezone": "CET",
       "population": 1275406,
-      "official_language": "Czech",
+      "officialLanguage": "Czech",
       "currency": "Euro",
       "sights": ["Staromestske namesti", "St. Vitus Cathedral", "Charles Bridge", "Prague Castle", "Lesser Town"],
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/PRAGUE.jpg/1280px-PRAGUE.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/PRAGUE.jpg/1280px-PRAGUE.jpg"
     },
     {
       "name": "Berlin",
@@ -236,10 +236,10 @@
       "continent": "Europe",
       "timezone": "COT",
       "population": 3677472,
-      "official_language": "German",
+      "officialLanguage": "German",
       "currency": "Euro",
       "sights": ["Reichstag Building", "Brandenburg Gate", "The Holocaust Memorial", "Memorial of the Berlin Wall", "Pergamonmuseum"],
-      "image_url": "https://images.pexels.com/photos/5802430/pexels-photo-5802430.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      "imageUrl": "https://images.pexels.com/photos/5802430/pexels-photo-5802430.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       "name": "Quebec",
@@ -247,10 +247,10 @@
       "continent": "North America",
       "timezone": "ET",
       "population": 8501833,
-      "official_language": "English France",
+      "officialLanguage": "English France",
       "currency": "Canadian dollar",
       "sights": ["Old Quebec", "Terrasse Dufferin", "Place Royale", "La Citadelle de Québec", "Parc de la Chute-Montmorency"],
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Rue_Saint-Joseph%2C_Quebec_City%2C_Quebec%2C_Canada_2340_19.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Rue_Saint-Joseph%2C_Quebec_City%2C_Quebec%2C_Canada_2340_19.jpg"
     },
     {
       "name": "Copenhagen",
@@ -258,10 +258,10 @@
       "continent": "Europe",
       "timezone": "COT",
       "population": 1366301,
-      "official_language": "Danish",
+      "officialLanguage": "Danish",
       "currency": "Danish Krone",
       "sights": ["Nyhavn", "Tivoli Gardens", "Rosenborg Castle", "Ny Carlsberg Glyptotek", " Our Saviour's Church"],
-      "image_url": "https://live.staticflickr.com/7667/16884418807_b58263e600_c.jpg"
+      "imageUrl": "https://live.staticflickr.com/7667/16884418807_b58263e600_c.jpg"
     },
     {
       "name": "Cape Town",
@@ -269,9 +269,9 @@
       "continent": "Africa",
       "timezone": "SAST",
       "population": 4710000,
-      "official_language": "Zulu, Xhosa, Afrikaans",
+      "officialLanguage": "Zulu, Xhosa, Afrikaans",
       "currency": "South African rand",
       "sights": ["Table Mountain Aerial Cableway", "Table Mountain", "Kirstenbosch National Botanical Garden", "Boulders Beach Penguin Colony", "Lion's Head"],
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Cape_Town_City_Hall%2C_black_and_white.jpg/1280px-Cape_Town_City_Hall%2C_black_and_white.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Cape_Town_City_Hall%2C_black_and_white.jpg/1280px-Cape_Town_City_Hall%2C_black_and_white.jpg"
     }
   ]

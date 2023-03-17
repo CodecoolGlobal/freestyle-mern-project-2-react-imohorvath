@@ -1,6 +1,6 @@
 import "./CitySearch.css"
 
-const CitySearch = ({searchValue, handleSearch}) => {
+const CitySearch = ({searchValue, onSearch}) => {
   return (
     <div className="city-search">
     <input
@@ -8,7 +8,7 @@ const CitySearch = ({searchValue, handleSearch}) => {
       type="text"
       placeholder="Enter city name..."
       value={searchValue}
-      onChange={handleSearch}
+      onChange={onSearch}
     />
     </div>
   );
