@@ -21,7 +21,13 @@
     width: 26%;
     flex-direction: row;
     justify-content: flex-start;
+    cursor: pointer;
 }
+
+/* .citylist-header-item h3:hover{
+    color: #db86b8;
+    cursor: pointer;
+} */
 
 .citylist-header-empty {
     width: 20%
