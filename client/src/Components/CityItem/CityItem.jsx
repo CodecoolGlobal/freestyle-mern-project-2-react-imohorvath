@@ -11,24 +11,23 @@ const fetchBucketlist = async (cityid) => {
 };
 
 const CityItem = ({ city }) => {
-  const [isAddClicked, setIsAddClicked] = useState(false);
+  const [showSubmit, setShowSubmit] = useState(false);
   const [isCityCardShown, setIsCityCardShown] = useState(false);
-  const [isOnBucketlist, setIsonBucketlist] = useState(false);
+  const [bucketListId, setBucketListId] = useState("");
 
-  const handleDisplayCityCard = () => {
+  const toggleDisplayCityCard = () => {
     setIsCityCardShown(!isCityCardShown);
   };
 
-  const handleDisplaySubmitCard = async () => {
-    setIsAddClicked(!isAddClicked);
-    const result = await fetchBucketlist(city._id);
-    // console.log(result);
-    if (result === null) {
-      return;
-    } else {
-      setIsonBucketlist(true);
+  const handleSubmitToggle = async () => {
+    if (!showSubmit) {
+      const result = await fetchBucketlist(city._id);
+      if (result !== null) {
+        setBucketListId(result._id);
+      }
     }
-  }
+    setShowSubmit((curr) => !curr);
+  };
 
   return (
     <>
@@ -43,39 +42,21 @@ const CityItem = ({ city }) => {
           <p>{city.reviews}</p>
         </div>
         <div className="city-row-buttons">
-          {isCityCardShown ? (
-            <button onClick={handleDisplayCityCard} className="function-button">
-              Hide
-            </button>
-          ) : (
-            <button onClick={handleDisplayCityCard} className="function-button">
-              Show
-            </button>
-          )}
+          <button onClick={toggleDisplayCityCard} className="function-button">
+            {isCityCardShown ? "Hide" : "Show"}
+          </button>
         </div>
         <div className="city-row-buttons">
-          {isAddClicked ? (
-            <button
-              className="function-button"
-              onClick={handleDisplaySubmitCard}
-            >
-              Cancel
-            </button>
-          ) : (
-            <button
-              className="function-button"
-              onClick={handleDisplaySubmitCard}
-            >
-              Add
-            </button>
-          )}
+          <button className="function-button" onClick={handleSubmitToggle}>
+            {showSubmit ? "Cancel" : "Add"}
+          </button>
         </div>
       </div>
-      {isAddClicked && (
+      {showSubmit && (
         <CitySubmit
           city={city}
-          onSubmit={handleDisplaySubmitCard}
-          isOnBucketlist={isOnBucketlist}
+          onSubmit={handleSubmitToggle}
+          bucketListId={bucketListId}
         />
       )}
       {isCityCardShown && <CityDetailCard city={city} />}
