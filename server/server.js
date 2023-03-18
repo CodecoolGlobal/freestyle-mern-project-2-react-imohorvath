@@ -16,11 +16,14 @@ if (!MONGO_URL) {
 const app = express();
 app.use(express.json());
 
-// FRONTEND REQUEST ----> /api/cities?name=asc
+// FRONTEND REQUEST EXAMPLE ----> /api/cities?name=asc
+// FRONTEND REQUEST EXAMPLE ----> /api/cities?country=desc
+// if there is no req.query it send back all the cities
 app.get("/api/cities", async (req, res) => {
   const cities = await CityModel.find({}).sort(req.query);
   res.json(cities);
 
+  // first naive implementation
   /*if (req.query.name) {
     const cities = await CityModel.find({}).sort({ name: req.query.name });
     res.json(cities);
@@ -34,6 +37,43 @@ app.get("/api/cities", async (req, res) => {
     const cities = await CityModel.find({});
     res.json(cities);
   }*/
+});
+
+// ADDING NEW ITEMS TO AN EXISTING ARRAY IN THE DATABASE
+// BOTH WORKS FINE
+// 1. SOLUTION
+/*app.post('/api/cities/:id/sights', async (req, res) => {
+  const city = await CityModel.findById(req.params.id);
+  city.sights.push(req.body.sight);
+  await city.save();
+  res.json(city);
+});*/
+
+// 2. SOLUTION
+app.post("/api/cities/:id/sights", async (req, res) => {
+  const city = await CityModel.findOneAndUpdate(
+    { _id: req.params.id },
+    { $push: { sights: req.body.sight } },
+    { new: true }
+  );
+
+  res.json(city);
+});
+
+// REMOVING ITEMS FROM AN EXISTING ARRAY IN THE DATABASE
+// $pull is searching for the given parameter
+// if we want to remove an object from an array we should use this way
+// { $pull: { sights: {name: 'John'} } }, OR
+// { $pull: { sights: req.body } }, where the body is {name: 'John'} ----> in JSON format {"name": "John"}
+app.delete('/api/cities/:id/sights', async (req, res) => {
+
+  const city = await CityModel.findOneAndUpdate(
+    { _id: req.params.id },
+    { $pull: { sights: req.body.sight } },
+    { new: true }
+  );
+
+  res.json(city);
 });
 
 app.get("/api/bucketlist", async (req, res, next) => {
@@ -68,7 +108,7 @@ app.patch("/api/bucketlist/:id", async (req, res, next) => {
   try {
       const updated = await FavouriteModel.findOneAndUpdate(
         { _id: id },
-        { $set: req.body },
+        { $set: req.body }, // vagy { $set: ...req.body } ???
         { new: true }
       ).populate("city");
 
@@ -78,6 +118,7 @@ app.patch("/api/bucketlist/:id", async (req, res, next) => {
   }
 });
 
+// first naive implementation
 // app.patch("/api/bucketlist/:id", async (req, res, next) => {
 //   const id = req.params.id;
 

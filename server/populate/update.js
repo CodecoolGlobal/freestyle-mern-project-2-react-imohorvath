@@ -10,10 +10,12 @@ if (!mongoUrl) {
   process.exit(1);
 }
 
+//Create a random hex color
+//original const hexValues = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"]; 
 const createRandomHex = () => {
-  const hexValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+  const hexValues = [4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
 
-  const hexCode = '#' + [...Array(7)].map(() => 
+  const hexCode = '#' + [...Array(6)].map(() => 
     hexValues[Math.floor(Math.random() * hexValues.length)]
   ).join('');
 
@@ -39,13 +41,15 @@ const randomNumber = (min, max, precision) => {
 const updateAll = async () => {
   const cities = await CityModel.find();
 
-  // first naive implementation
+  // first naive implementation --- in this case it runs synchronously one by one
+  // at this time it's enough to know
   /*for (const city of cities) {
     city.color = createRandomHex();
     city.reviews= randomNumber(5, 10, 10);
     await city.save();
   }*/
 
+  // better solution --- it enables to run the updating process asynchronously
   const tasks = cities.map((city) => {
     city.color = createRandomHex();
     // city.reviews= randomNumber(5, 10, 10);
