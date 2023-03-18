@@ -2,6 +2,24 @@ GET http://localhost:4000/api/cities
 
 
 ###
+POST http://localhost:4000/api/cities/64136c7e74fb3da9ac934e0c/sights
+Content-Type: application/json
+
+{
+  "sight": "Times Square"
+}
+
+
+###
+DELETE http://localhost:4000/api/cities/64136c7e74fb3da9ac934e0c/sights
+Content-Type: application/json
+
+{
+  "sight": "Times Square"
+}
+
+
+###
 GET http://localhost:4000/api/bucketlist
 
 
@@ -29,6 +47,7 @@ Content-Type: application/json
   "message": "Hello, your page is awesome",
   "subscribe": true
 }
+
 
 ###
 GET http://localhost:4000/api/cities?reviews=asc
