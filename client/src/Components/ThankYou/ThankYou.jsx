@@ -1,5 +1,4 @@
 import "./ThankYou.css";
-import React, { useState, useEffect } from "react";
 
 const ThankYou = ({ onButtonClick }) => {
 
