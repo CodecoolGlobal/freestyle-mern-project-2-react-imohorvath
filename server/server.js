@@ -1,12 +1,13 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
+const morgan = require("morgan");
 const FavouriteModel = require("./model/favourite.model");
 
 const CityModel = require("./model/city.model");
 const ContactModel = require("./model/contact.model");
 
-const { MONGO_URL, PORT = 4000 } = process.env;
+const { MONGO_URL, PORT = 5000 } = process.env;
 
 if (!MONGO_URL) {
   console.error("Missing MONGO_URL environment variable");
@@ -14,33 +15,15 @@ if (!MONGO_URL) {
 }
 
 const app = express();
+app.use(morgan('dev'));
 app.use(express.json());
 
-// FRONTEND REQUEST EXAMPLE ----> /api/cities?name=asc
-// FRONTEND REQUEST EXAMPLE ----> /api/cities?country=desc
-// if there is no req.query it send back all the cities
 app.get("/api/cities", async (req, res) => {
   const cities = await CityModel.find({}).sort(req.query);
   res.json(cities);
-
-  // first naive implementation
-  /*if (req.query.name) {
-    const cities = await CityModel.find({}).sort({ name: req.query.name });
-    res.json(cities);
-  } else if (req.query.country) {
-    const cities = await CityModel.find({}).sort({ country: req.query.country });
-    res.json(cities);
-  } else if (req.query.reviews) {
-    const cities = await CityModel.find({}).sort({ reviews: req.query.reviews });
-    res.json(cities);
-  } else {
-    const cities = await CityModel.find({});
-    res.json(cities);
-  }*/
 });
 
 // ADDING NEW ITEMS TO AN EXISTING ARRAY IN THE DATABASE
-// BOTH WORKS FINE
 // 1. SOLUTION
 /*app.post('/api/cities/:id/sights', async (req, res) => {
   const city = await CityModel.findById(req.params.id);
@@ -60,11 +43,6 @@ app.post("/api/cities/:id/sights", async (req, res) => {
   res.json(city);
 });
 
-// REMOVING ITEMS FROM AN EXISTING ARRAY IN THE DATABASE
-// $pull is searching for the given parameter
-// if we want to remove an object from an array we should use this way
-// { $pull: { sights: {name: 'John'} } }, OR
-// { $pull: { sights: req.body } }, where the body is {name: 'John'} ----> in JSON format {"name": "John"}
 app.delete('/api/cities/:id/sights', async (req, res) => {
 
   const city = await CityModel.findOneAndUpdate(
@@ -108,7 +86,7 @@ app.patch("/api/bucketlist/:id", async (req, res, next) => {
   try {
       const updated = await FavouriteModel.findOneAndUpdate(
         { _id: id },
-        { $set: req.body }, // vagy { $set: ...req.body } ???
+        { $set: req.body },
         { new: true }
       ).populate("city");
 
@@ -117,32 +95,6 @@ app.patch("/api/bucketlist/:id", async (req, res, next) => {
     return next(error);
   }
 });
-
-// first naive implementation
-// app.patch("/api/bucketlist/:id", async (req, res, next) => {
-//   const id = req.params.id;
-
-//   try {
-//     if (req.body.comment || req.body.rating) {
-//       const updated = await FavouriteModel.findOneAndUpdate(
-//         { _id: id },
-//         { $set: req.body },
-//         { new: true }
-//       ).populate("city");
-
-//       res.json(updated);
-
-//     } else {
-//       const fav = await FavouriteModel.findById(id).populate("city");
-//       fav.visited = !fav.visited;
-//       const updated = await fav.save();
-
-//       res.json(updated);
-//     }
-//   } catch (error) {
-//     return next(error);
-//   }
-// });
 
 app.delete("/api/bucketlist/:id", async (req, res, next) => {
   const id = req.params.id;
