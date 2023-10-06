@@ -7,41 +7,37 @@ services:
       dockerfile: Dockerfile
     image: travelbucketlist-server
     container_name: travelbucketlist-node-server
-    command: /usr/src/app/node_modules/.bin/nodemon server.js
-    volumes:
-      - ./server/:/usr/src/app
-      - /usr/src/app/node_modules
     ports:
       - 5000:5000
     depends_on:
-      - mongo
+      - travelbucketlist-mongodb
     env_file: ./server/.env
-    environment:
-      - NODE_ENV=development
     networks:
       - app-network
-  mongo:
+
+  travelbucketlist-mongodb:
     image: mongo
+    restart: always
     volumes:
       - data-volume:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=12345
     ports:
       - 27017:27017
     networks:
       - app-network
+
   client:
     build:
       context: ./client
       dockerfile: Dockerfile
     image: travelbucketlist-client
     container_name: travelbucketlist-react-client
-    command: npm start
-    volumes:
-      - ./client/:/usr/app
-      - /usr/app/node_modules
     depends_on:
       - server
     ports:
-      - 3000:3000
+      - 3000:80
     networks:
       - app-network
 
@@ -51,6 +47,5 @@ networks:
 
 volumes:
     data-volume:
-    node_modules:
     web-root:
       driver: local
