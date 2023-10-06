@@ -1,5 +1,5 @@
 import "./ContactUs.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ContactUsForm from "../../Components/ContactUsForm";
 import ThankYou from "../../Components/ThankYou";
 

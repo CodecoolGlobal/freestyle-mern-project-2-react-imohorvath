@@ -65,66 +65,6 @@ const Bucketlist = () => {
       });
   };
 
-  // const updateBucketlistItem = (id, comment) => {
-  //   const body = {
-  //     comment,
-  //   };
-
-  //   fetch(`/api/bucketlist/${id}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(body),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((city) => {
-  //       setBucketlist(list => list.map(fav => {
-  //         if (city._id !== fav._id) {
-  //           return fav;
-  //         }
-
-  //         return {
-  //           ...fav,
-  //           ...city
-  //         };
-  //       }))
-
-  //       /*setLoading(true);
-  //       fetchBucketlist().then((bucketlist) => {
-  //         setBucketlist(bucketlist);
-  //         setLoading(false);
-  //       });*/
-  //     });
-  // };
-
-  // const changeBucketlistItem = (id, visited) => {
-  //   const body = {
-  //     visited
-  //   };
-
-  //   fetch(`/api/bucketlist/${id}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(body),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((city) => {
-  //       setBucketlist(list => list.map(fav => {
-  //         if (city._id !== fav._id) {
-  //           return fav;
-  //         }
-
-  //         return {
-  //           ...fav,
-  //           ...city
-  //         };
-  //       }));
-  //     });
-  // };
-
   return (
     <>
       <div className="bucketlist-container">

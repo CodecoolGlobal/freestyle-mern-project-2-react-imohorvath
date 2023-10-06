@@ -1,0 +1,51 @@
+version: '3.7'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    image: travelbucketlist-server
+    container_name: travelbucketlist-node-server
+    ports:
+      - 5000:5000
+    depends_on:
+      - travelbucketlist-mongodb
+    env_file: ./server/.env
+    networks:
+      - app-network
+
+  travelbucketlist-mongodb:
+    image: mongo
+    restart: always
+    volumes:
+      - data-volume:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=12345
+    ports:
+      - 27017:27017
+    networks:
+      - app-network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    image: travelbucketlist-client
+    container_name: travelbucketlist-react-client
+    depends_on:
+      - server
+    ports:
+      - 3000:80
+    networks:
+      - app-network
+
+networks:
+    app-network:
+        driver: bridge
+
+volumes:
+    data-volume:
+    web-root:
+      driver: local
